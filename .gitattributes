@@ -1,0 +1,5 @@
+* text=auto
+*.java text
+*.txt text
+*.xml text
+*.ttf binary

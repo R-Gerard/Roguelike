@@ -1,0 +1,162 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.callidusrobotics.rl</groupId>
+  <artifactId>Roguelike</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1</version>
+  <name>Roguelike</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.jdkVersion>1.6</project.build.jdkVersion>
+    <project.mainClass>com.callidusrobotics.example.ConsoleDemo</project.mainClass>
+    <plugins.proguardVersion>4.8</plugins.proguardVersion>
+  </properties>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License, Version 3</name>
+      <url>http://www.gnu.org/licenses/gpl.txt</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Callidus Robotics</name>
+    <url>http://github.com/r-gerard</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>r-gerard</id>
+      <name>Rusty Gerard</name>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.7.1</version>
+        <executions>
+          <execution>
+            <id>check-code-with-pmd</id>
+            <phase>test</phase>
+            <goals>
+              <goal>pmd</goal>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <failurePriority>5</failurePriority>
+          <targetJdk>${project.build.jdkVersion}</targetJdk>
+          <rulesets>
+            <ruleset>./pmd_ruleset.xml</ruleset>
+          </rulesets>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <source>${project.build.jdkVersion}</source>
+          <target>${project.build.jdkVersion}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>make-jar-with-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${project.mainClass}</mainClass>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.wvengen</groupId>
+        <artifactId>proguard-maven-plugin</artifactId>
+        <version>2.0.6</version>
+        <executions>
+          <execution>
+            <id>optimize-code-with-proguard</id>
+            <phase>package</phase>
+            <goals>
+              <goal>proguard</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <proguardVersion>${plugins.proguardVersion}</proguardVersion>
+          <libs>
+            <lib>${java.home}/lib/rt.jar</lib>
+          </libs>
+          <obfuscate>false</obfuscate>
+          <includeDependency>true</includeDependency>
+          <options>
+            <option>-allowaccessmodification</option>
+            <option>-keep public final class ${project.mainClass} { public static void main(java.lang.String[]); }</option>
+            <option>-verbose</option>
+            <option>-dump ./target/proguard_dump.txt</option>
+          </options>
+          <injar>${project.build.finalName}-jar-with-dependencies.jar</injar>
+          <outjar>${project.build.finalName}-optimized.jar</outjar>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sf.proguard</groupId>
+            <artifactId>proguard-base</artifactId>
+            <version>${plugins.proguardVersion}</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <id>check-jar-with-findbugs</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>findbugs</goal>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
