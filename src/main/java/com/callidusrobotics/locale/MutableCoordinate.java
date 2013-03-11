@@ -32,6 +32,73 @@ public class MutableCoordinate extends Coordinate {
     super(other);
   }
 
+  @Override
+  public MutableCoordinate add(final Coordinate other) {
+    // Create a new object in case the caller thinks this is an instance of Coordinate
+    return new MutableCoordinate(super.add(other));
+  }
+
+  /**
+   * Vector addition mutator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return this, for method chaining
+   * @see #add(Coordinate)
+   */
+  public MutableCoordinate increment(final Coordinate other) {
+    if (other != null) {
+      this.row += other.row;
+      this.col += other.col;
+    }
+
+    return this;
+  }
+
+  @Override
+  public MutableCoordinate subtract(final Coordinate other) {
+    // Create a new object in case the caller thinks this is an instance of Coordinate
+    return new MutableCoordinate(super.subtract(other));
+  }
+
+  /**
+   * Vector subtraction mutator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return this, for method chaining
+   * @see #subtract(Coordinate)
+   */
+  public MutableCoordinate decrement(final Coordinate other) {
+    if (other != null) {
+      this.row -= other.row;
+      this.col -= other.col;
+    }
+
+    return this;
+  }
+
+  @Override
+  public MutableCoordinate multiply(final int scalar) {
+    // Create a new object in case the caller thinks this is an instance of Coordinate
+    return new MutableCoordinate(super.multiply(scalar));
+  }
+
+  /**
+   * Scalar multiplication mutator.
+   *
+   * @param scalar
+   *          The coefficient
+   * @return this, for method chaining
+   * @see #multiply(int)
+   */
+  public MutableCoordinate magnify(final int scalar) {
+    this.row *= scalar;
+    this.col *= scalar;
+
+    return this;
+  }
+
   public void setPosition(final Coordinate other) {
     this.row = other.row;
     this.col = other.col;

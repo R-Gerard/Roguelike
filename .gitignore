@@ -1,3 +1,7 @@
+### Game Files ###
+*.properties
+*.log
+
 ### Java ###
 
 *.class

@@ -55,6 +55,117 @@ public class Coordinate {
     return deltaR * deltaR + deltaC * deltaC;
   }
 
+  /**
+   * Vector addition operator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return The vector sum of this and the operand, never null
+   */
+  public Coordinate add(final Coordinate other) {
+    final Coordinate temp = new Coordinate(this);
+    if (other != null) {
+      temp.row += other.row;
+      temp.col += other.col;
+    }
+
+    return temp;
+  }
+
+  /**
+   * Vector subtraction operator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return The vector difference of this and the operand, never null
+   */
+  public Coordinate subtract(final Coordinate other) {
+    final Coordinate temp = new Coordinate(this);
+    if (other != null) {
+      temp.row -= other.row;
+      temp.col -= other.col;
+    }
+
+    return temp;
+  }
+
+  /**
+   * Scalar multiplication operator.
+   *
+   * @param scalar
+   *          The coefficient
+   * @return The vector product of this and the coefficient
+   */
+  public Coordinate multiply(final int scalar) {
+    final Coordinate temp = new Coordinate(this);
+    temp.row *= scalar;
+    temp.col *= scalar;
+
+    return temp;
+  }
+
+  /**
+   * 2D vector cross product operator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return The scalar cross product of this and the operand
+   */
+  public int crossProduct(final Coordinate other) {
+    if (other == null) {
+      return 0;
+    }
+
+    // Ux*Vy - Uy*Vx
+    return row * other.col - col * other.row;
+  }
+
+  /**
+   * 2D vector dot product operator.
+   *
+   * @param other
+   *          The operand, nullable
+   * @return The scalar dot product of this and the operand
+   */
+  public int dotProduct(final Coordinate other) {
+    if (other == null) {
+      return 0;
+    }
+
+    // Ux*Vx + Uy*Vy
+    return row * other.row + col * other.col;
+  }
+
+  /**
+   * Tests if this is collinear with and lies between two other points.
+   *
+   * @param a
+   *          The first line endpoint, not null
+   * @param b
+   *          The second line endpoint, not null
+   * @return True if this is between
+   */
+  @SuppressWarnings("PMD.ShortVariable")
+  public boolean isBetween(final Coordinate a, final Coordinate b) {
+    if (a == null || b == null) {
+      return false;
+    }
+
+    // Points a, b, and c are collinear if the cross-product (b-a)x(c-a) == 0
+    final Coordinate a2b = b.subtract(a);
+    final Coordinate a2self = this.subtract(a);
+    final int crossProduct = a2b.crossProduct(a2self);
+
+    if (crossProduct != 0) {
+      return false;
+    }
+
+    // Let P denote the dot-product of (b-a)*(c-a)
+    // Point c is between a and b if P > 0 && P < dist^2(a, b)
+    final int dotProduct = a2b.dotProduct(a2self);
+    return dotProduct > 0 && dotProduct < a.distance2(b);
+  }
+
   public int getRow() {
     return row;
   }

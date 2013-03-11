@@ -1,0 +1,104 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<areaMapData name="Demo Area 1">
+    <isDangerous>false</isDangerous>
+    <tiles>
+        <tile id="N">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>false</barrier>
+            <alwaysOnTop>false</alwaysOnTop>
+            <name>Exit</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id="S">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>false</barrier>
+            <alwaysOnTop>false</alwaysOnTop>
+            <name>Exit</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id="#">
+            <character>&#9608;</character>
+            <foreground>0x808080</foreground>
+            <background>0x808080</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Wall</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id="_">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Invisible Barrier</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id=".">
+            <character>.</character>
+            <foreground>0x228B22</foreground>
+            <barrier>false</barrier>
+            <name>Grass</name>
+            <description>Patch of green grass.</description>
+        </tile>
+        <tile id="T">
+            <character>T</character>
+            <foreground>0x228B22</foreground>
+            <barrier>true</barrier>
+            <name>Tree</name>
+            <description>A tree.</description>
+        </tile>
+        <tile id="=">
+            <character>.</character>
+            <foreground>0x8B4513</foreground>
+            <barrier>false</barrier>
+            <name>Path</name>
+            <description>Gravel path.</description>
+        </tile>
+    </tiles>
+    <width>11</width>
+    <map>
+        #####N#####
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        T....=....T
+        TTTTTSTTTTT
+    </map>
+    <exits>
+        <exit direction="NORTH" tileId="N" dungeonMapFile="/data/demo/dungeons/demo.xml"/>
+        <exit direction="SOUTH" tileId="S" areaMapFile="/data/demo/maps/demo2.xml"/>
+    </exits>
+    <npcs>
+        <npc>townsfolk</npc>
+    </npcs>
+</areaMapData>

@@ -1,0 +1,73 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<dungeonMapData name="Demo Dungeon" type="NON_EUCLIDEAN">
+    <foreground>0x808080</foreground>
+    <nonEuclideanParameters>
+        <minRooms>10</minRooms>
+        <maxRooms>20</maxRooms>
+        <rectangleRoomFreq>300</rectangleRoomFreq>
+        <hallwayFrequency>600</hallwayFrequency>
+        <roundRoomFreq>100</roundRoomFreq>
+        <hasStairs>false</hasStairs>
+    </nonEuclideanParameters>
+    <npcPopulationParameters>
+        <populationCap>6</populationCap>
+        <spawnParameters>
+            <min>2</min>
+            <max>5</max>
+        </spawnParameters>
+        <respawnParameters>
+            <min>0</min>
+            <max>2</max>
+        </respawnParameters>
+    </npcPopulationParameters>
+    <spawnLists>
+        <spawnList startLevel="0">
+            <npc relativeFrequency="100">monster</npc>
+        </spawnList>
+    </spawnLists>
+    <tiles>
+        <tile id="_">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Invisible Barrier</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id=".">
+            <character>.</character>
+            <foreground>0x808080</foreground>
+            <background>0x202020</background>
+            <barrier>false</barrier>
+            <alwaysOnTop>false</alwaysOnTop>
+            <name>Floor</name>
+            <description>Stone floor.</description>
+        </tile>
+        <tile id="#">
+            <character>&#9608;</character>
+            <foreground>0x808080</foreground>
+            <background>0x808080</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Wall</name>
+            <description>Stone wall.</description>
+        </tile>
+    </tiles>
+</dungeonMapData>

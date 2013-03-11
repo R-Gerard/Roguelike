@@ -20,7 +20,6 @@ package com.callidusrobotics.swing;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -94,11 +93,7 @@ public final class FontFactory {
     try {
       font = Font.createFont(Font.TRUETYPE_FONT, FontFactory.class.getResourceAsStream(fontName));
       font = font.deriveFont(Font.PLAIN, fontSize);
-    } catch (final FileNotFoundException e) {
-      return null;
-    } catch (final FontFormatException e) {
-      return null;
-    } catch (final IOException e) {
+    } catch (final FontFormatException | IOException e) {
       return null;
     }
 

@@ -1,0 +1,90 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<gameData>
+    <loadingScreen>
+ Loading. Please wait...</loadingScreen>
+    <splashScreen>
+                                   Game Title</splashScreen>
+    <introduction>Story goes here</introduction>
+    <legalNotice>
+        Copyright (C) 2013 Rusty Gerard
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+    </legalNotice>
+    <instructions>
+        CONTROLS
+        Arrow keys and numbers control movement. Press 5 to wait.
+
+        7 8 9     &#8598; &#8593; &#8599;
+
+        4 5 6     &#8592;   &#8594;
+
+        1 2 3     &#8601; &#8595; &#8600;
+
+        COMMANDS
+        g Grab an item
+        G Grab an item quickly
+        d Drop an item
+        D Drop an item quickly
+        i View inventory
+        u Use an item in your inventory
+        e Equip an item in your inventory
+        r Remove an equipped item and place it in your inventory
+        R Remove ammunition from an item in your inventory
+        l Load ammunition into a weapon
+        f Fire a projectile weapon
+        c Chat with an adjacent NPC
+        ? Display this screen
+        Q Quit the game
+
+        SPACEBAR Toggles between display modes -or-
+        targets when aiming a projectile.
+
+        HOW TO KILL STUFF
+        Bump into a monster to attack it, or press (f)ire to aim a projectile
+        weapon at it.
+    </instructions>
+    <playerFile>/data/demo/player.xml</playerFile>
+    <startingAreaFile>/data/demo/maps/demo1.xml</startingAreaFile>
+    <factionDataFile>/data/demo/factionData.xml</factionDataFile>
+    <itemListFiles>
+        <itemListFile>/data/demo/items/demo.xml</itemListFile>
+    </itemListFiles>
+    <npcListFiles>
+        <npcListFile>/data/demo/npcs/demo.xml</npcListFile>
+    </npcListFiles>
+    <splashForeground>0x00FF00</splashForeground>
+    <splashBackground>0x000000</splashBackground>
+    <boxForeground>0x696969</boxForeground>
+    <boxBackground>0x000000</boxBackground>
+    <fontForeground>0xE6E6FA</fontForeground>
+    <fontBackground>0x000000</fontBackground>
+    <selectForeground>0x000000</selectForeground>
+    <selectBackground>0xE6E6FA</selectBackground>
+</gameData>

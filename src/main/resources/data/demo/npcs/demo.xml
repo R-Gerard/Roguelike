@@ -1,0 +1,78 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<nonPlayerCharacterList id="demo">
+    <NonPlayerCharacterData id="townsfolk">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0xFFC0CB</foreground>
+            <name display="Townsfolk"/>
+            <description>A generic person.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>townsfolk</faction>
+        <statBlock>
+            <maxHp>10</maxHp>
+            <currentHp>10</currentHp>
+            <strength>1</strength>
+            <agility>1</agility>
+            <intelligence>1</intelligence>
+            <defense>1</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>Hi</message>
+            <message>Nice weather today, isn't it?</message>
+            <message>Hello</message>
+            <message>How are you?</message>
+        </messages>
+        <fixedItems>
+            <item id="money" fixedQuantity="10" randomQuantity="90"/>
+        </fixedItems>
+        <randomItems>
+            <item id="pocket_knife" fixedQuantity="1" randomProbability="50"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="monster">
+        <displayInfo>
+            <character>M</character>
+            <foreground>0xADFF2F</foreground>
+            <name display="Monster"/>
+            <description>A generic monster.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>8</maxHp>
+            <currentHp>8</currentHp>
+            <strength>3</strength>
+            <agility>3</agility>
+            <intelligence>3</intelligence>
+            <defense>3</defense>
+            <speed>75</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+        <randomItems>
+            <item id="healing_stone" fixedQuantity="1" randomProbability="10"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+</nonPlayerCharacterList>
