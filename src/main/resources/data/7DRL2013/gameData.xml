@@ -1,0 +1,179 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<gameData>
+    <loadingScreen>
+ Loading. Please wait...</loadingScreen>
+    <splashScreen>
+                                                                               
+  *                             #     #                            ####  ##    
+   *                 ***        ##   ##           ##               ##  # ##    
+   **               *****       ### ###       ##  ##               ##  # ##    
+    ***             ******      ####### ## # #### #####  ###   ### ####  ##    
+    *****          *** ****     ## # ##  # #  ##  ##  # ## ## ##   ## #  ##    
+     ******       ****   ***    ##   ##  # #  ##  ##  # ## ##   ## ##  # ##    
+     *** ****     **      ***   ##   ##  ###   ## ##  #  ###  ###  ##  # ##### 
+      **   ***** ***        **            #                                    
+       **     *****          **          #                                     
+       ***        *****       **                  **                           
+        ** *   **      *********        **********                             
+         ** *  *       *       **  ************                                
+          *   **        *        *       ****                                  
+          **  *       * *   **** **    ****                                    
+           *  *    **   **     *  *   ***                                      
+             *   **    ****   *     ***                                        
+             *  ***    ***  **    ***                                          
+             * *  ***** ***      **                                            
+            **  *              **   ***                                        
+            **   **          ***     **                                        
+            **    **        **       ***                                       
+            **     **     ***         **                                       
+           ***      ***  **           ***                                      
+           **        *****             **                                      
+           **         ****       *   * **                                      
+           *            ***  *  ***   * **                                     
+           *        **   ******    *    **                                     
+           *       ***     ******    * ****                                    
+           *      ***       ***** *      **                                    
+           **    ***          *****      **                                    
+           **   ***             ***** ******                                   
+          ***  ***                **********                                   
+          *** ***                    *******                                   
+          *******                       *****                                  
+           *****                                                               
+           ****                                                                
+           ***                                                                 
+           **                                                                  
+           **                                                                  
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                                               
+                                                Copyright (c) 2013 Rusty Gerard
+    </splashScreen>
+    <introduction>
+        It all started in the autumn of 1925 in the sleepy city of Arkham,
+        Massachusetts. The men had set off to work, students were headed to class
+        at Miskatonic University, and you thought it was going to be another
+        routine patrol. You even brought bread crumbs to feed the birds. Of
+        course, that was until strange happenings started cropping up all over.
+
+
+        Farmer Akeley called the station to report that he had seen some sort of
+        "Pinkish things that were about five feet long, with crustacous bodies"
+        out on his property. It was dismissed out of hand until more reports came
+        from all over the city, even the Mayor. That was when the the Sheriff
+        rounded up all able-bodied men and women to investigate the situation.
+
+
+        At first no one knew from where these mysterious arcane powers were
+        coming from but all of the signs lead you to the University District.
+        It was then that you realized the powers were emanating from the very
+        campus itself.
+
+
+        Upon arriving onto the scene you notice a man running in a blind panic
+        from the main building. Selecting you out of the crowd at random, he
+        grabs you by the arm and frantically spouts nonsense about some book
+        called the "Necronomicon:"
+
+
+        "It was stolen from the archives last night! It must be recovered! Only
+        then will the chaos stop and the University be set back to its original
+        state!" Explaining that he is the University Library's archivist, the
+        old man pushes a mysterious object into your hands and implores you to
+        enter the main building at once.
+
+
+        Armed only with your service revolver and a hand-written journal filled
+        with arcane lore that you do not comprehend, are you brave enough to do
+        battle with the horrors that lurk within the non-Euclidean labyrinth to
+        recover the Necronomicon and bring the chaos to an end in Arkham?
+    </introduction>
+    <legalNotice>
+        Copyright (C) 2013 Rusty Gerard
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+    </legalNotice>
+    <instructions>
+        CONTROLS
+        Arrow keys and numbers control movement. Press 5 to wait.
+
+        7 8 9     &#8598; &#8593; &#8599;
+
+        4 5 6     &#8592;   &#8594;
+
+        1 2 3     &#8601; &#8595; &#8600;
+
+        COMMANDS
+        g Grab an item
+        G Grab an item quickly
+        d Drop an item
+        D Drop an item quickly
+        i View inventory
+        u Use an item in your inventory
+        e Equip an item in your inventory
+        r Remove an equipped item and place it in your inventory
+        R Remove ammunition from an item in your inventory
+        l Load ammunition into a weapon
+        f Fire a projectile weapon
+        c Chat with an adjacent NPC
+        ? Display this screen
+        Q Quit the game
+
+        SPACEBAR Toggles between display modes -or-
+        targets when aiming a projectile.
+
+        HOW TO KILL STUFF
+        Bump into a monster to attack it, or press (f)ire to aim a projectile
+        weapon at it.
+    </instructions>
+    <playerFile>/data/7DRL2013/player.xml</playerFile>
+    <startingAreaFile>/data/7DRL2013/maps/miskatonicUniversity.xml</startingAreaFile>
+    <factionDataFile>/data/7DRL2013/factionData.xml</factionDataFile>
+    <itemListFiles>
+        <itemListFile>/data/7DRL2013/items/armor.xml</itemListFile>
+        <itemListFile>/data/7DRL2013/items/books.xml</itemListFile>
+        <itemListFile>/data/7DRL2013/items/miscellany.xml</itemListFile>
+        <itemListFile>/data/7DRL2013/items/weapons.xml</itemListFile>
+    </itemListFiles>
+    <npcListFiles>
+        <npcListFile>/data/7DRL2013/npcs/townsfolk.xml</npcListFile>
+        <npcListFile>/data/7DRL2013/npcs/monsters.xml</npcListFile>
+    </npcListFiles>
+    <splashForeground>0x0000FF</splashForeground>
+    <splashBackground>0x000000</splashBackground>
+    <boxForeground>0x696969</boxForeground>
+    <boxBackground>0x000000</boxBackground>
+    <fontForeground>0xE6E6FA</fontForeground>
+    <fontBackground>0x000000</fontBackground>
+    <selectForeground>0x000000</selectForeground>
+    <selectBackground>0xE6E6FA</selectBackground>
+</gameData>

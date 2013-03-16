@@ -1,0 +1,220 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<nonPlayerCharacterList id="monsters">
+    <NonPlayerCharacterData id="elder_thing">
+        <displayInfo>
+            <character>e</character>
+            <foreground>0x00FFFF</foreground>
+            <name display="Elder Thing"/>
+            <description>A man-sized, winged creature with vegetable and animal characteristics.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>50</maxHp>
+            <currentHp>50</currentHp>
+            <strength>20</strength>
+            <agility>10</agility>
+            <intelligence>30</intelligence>
+            <defense>0</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+        <randomItems>
+            <item id="powder_of_ibn_ghazi" fixedQuantity="5" randomProbability="25" randomQuantity="10"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="leng_spider">
+        <displayInfo>
+            <character>S</character>
+            <foreground>0x800080</foreground>
+            <name display="Leng Spider"/>
+            <description>A bloated, 6000-pound man-eating spider.</description>
+            <size>LARGE</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>50</maxHp>
+            <currentHp>50</currentHp>
+            <strength>20</strength>
+            <agility>10</agility>
+            <intelligence>5</intelligence>
+            <defense>5</defense>
+            <speed>75</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="mi-go">
+        <displayInfo>
+            <character>m</character>
+            <foreground>0xFFA07A</foreground>
+            <name display="Mi-go"/>
+            <description>A pinkish, fungoid, crustacean-like entity the size of a man, with a pyramid of fleshy rings and antennae for a head.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>25</maxHp>
+            <currentHp>25</currentHp>
+            <strength>20</strength>
+            <agility>10</agility>
+            <intelligence>30</intelligence>
+            <defense>5</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+        <randomItems>
+            <item id="powder_of_ibn_ghazi" fixedQuantity="2" randomProbability="10" randomQuantity="3"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="nightgaunt">
+        <displayInfo>
+            <character>n</character>
+            <foreground>0x0000FF</foreground>
+            <name display="Nightgaunt"/>
+            <description>A thin, black, faceless, winged creature with a vaguely human-shaped body and barbed tail.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>25</maxHp>
+            <currentHp>25</currentHp>
+            <strength>20</strength>
+            <agility>20</agility>
+            <intelligence>10</intelligence>
+            <defense>5</defense>
+            <speed>75</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="rat_thing">
+        <displayInfo>
+            <character>r</character>
+            <foreground>0x8B4513</foreground>
+            <name display="Rat Thing"/>
+            <description>A creature no bigger than a house cat with the face of a man and the body of a rat.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>5</maxHp>
+            <currentHp>5</currentHp>
+            <strength>2</strength>
+            <agility>30</agility>
+            <intelligence>2</intelligence>
+            <defense>2</defense>
+            <speed>90</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+        <randomItems>
+            <item id="pallid_mask" fixedQuantity="1" randomProbability="1"/>
+            <item id="elder_sign_amulet" fixedQuantity="1" randomProbability="1"/>
+            <item id="healing_stone" fixedQuantity="1" randomProbability="5"/>
+            <item id="powder_of_ibn_ghazi" fixedQuantity="1" randomProbability="5" randomQuantity="4"/>
+            <item id="cavalry_saber" fixedQuantity="1" randomProbability="5"/>
+            <item id="colt_peacemaker" fixedQuantity="1" randomProbability="5"/>
+            <item id="service_revolver" fixedQuantity="1" randomProbability="5"/>
+            <item id="45_colt_ammo" fixedQuantity="10" randomProbability="10" randomQuantity="10"/>
+            <item id="38_special_ammo" fixedQuantity="10" randomProbability="20" randomQuantity="10"/>
+            <item id="money" fixedQuantity="1" randomProbability="20" randomQuantity="10"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="star_spawn">
+        <displayInfo>
+            <character>C</character>
+            <foreground>0x008000</foreground>
+            <name display="Star Spawn"/>
+            <description>A 30-foot tall green, scaly monster of vaguely anthropoid outline, with an octopus-like head, prodigious claws, and vestigal wings.</description>
+            <size>GIGANTIC</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>250</maxHp>
+            <currentHp>250</currentHp>
+            <strength>20</strength>
+            <agility>10</agility>
+            <intelligence>10</intelligence>
+            <defense>15</defense>
+            <speed>75</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+        </behaviors>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="warlock">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0xDC143C</foreground>
+            <name display="Warlock"/>
+            <description>A powerful cultist.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>2500</maxHp>
+            <currentHp>2500</currentHp>
+            <strength>20</strength>
+            <agility>20</agility>
+            <intelligence>20</intelligence>
+            <defense>50</defense>
+            <speed>100</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="90" base="0" multiplier="1"/>
+        </behaviors>
+        <fixedItems>
+            <item id="necronomicon" fixedQuantity="1"/>
+            <item id="healing_stone" fixedQuantity="5"/>
+        </fixedItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="yithian">
+        <displayInfo>
+            <character>Y</character>
+            <foreground>0xFFFF00</foreground>
+            <name display="Yithian"/>
+            <description>A 20-foot tall rugose cone topped by a pair of clawed appendages, a long trumpet, and a yellow orb on a stalk.</description>
+            <size>GIGANTIC</size>
+        </displayInfo>
+        <faction>monsters</faction>
+        <statBlock>
+            <maxHp>50</maxHp>
+            <currentHp>50</currentHp>
+            <strength>20</strength>
+            <agility>10</agility>
+            <intelligence>30</intelligence>
+            <defense>5</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="MELEE" min="0" max="90" base="0" multiplier="1"/>
+        </behaviors>
+        <randomItems>
+            <item id="healing_stone" fixedQuantity="2" randomProbability="25" randomQuantity="3"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+</nonPlayerCharacterList>

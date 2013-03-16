@@ -1,0 +1,36 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<playerCharacterData>
+    <foreground>0x4682B4</foreground>
+    <statBlock>
+        <maxHp>30</maxHp>
+        <currentHp>30</currentHp>
+        <strength>15</strength>
+        <agility>15</agility>
+        <intelligence>15</intelligence>
+        <defense>15</defense>
+        <speed>100</speed>
+    </statBlock>
+    <fixedItems>
+        <item id="pocket_knife" fixedQuantity="1"/>
+        <item id="breadcrumb" fixedQuantity="450" randomQuantity="100"/>
+        <item id="38_special_ammo" fixedQuantity="45" randomQuantity="10"/>
+        <item id="service_revolver" fixedQuantity="1"/>
+        <item id="old_journal" fixedQuantity="1"/>
+    </fixedItems>
+</playerCharacterData>

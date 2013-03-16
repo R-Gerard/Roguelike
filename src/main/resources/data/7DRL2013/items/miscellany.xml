@@ -1,0 +1,76 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<itemList id="miscellany">
+    <ItemData id="breadcrumb">
+        <character>*</character>
+        <color>0xFFEBCD</color>
+        <inventoriableData>
+            <name>Breadcrumb</name>
+            <description>A crumb of bread for marking your way.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>0</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>If only there were some birds to feed...</useMessage>
+        </useableData>
+    </ItemData>
+    <ItemData id="money">
+        <character>$</character>
+        <color>0x008000</color>
+        <inventoriableData>
+            <name>Money</name>
+            <description>Fat stacks of cash.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>100</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Maybe you can buy something with this.</useMessage>
+        </useableData>
+    </ItemData>
+    <ItemData id="healing_stone">
+        <character>*</character>
+        <color>0xFF0000</color>
+        <inventoriableData>
+            <name>Healing Stone</name>
+            <description>A magical gem that regenerates flesh.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>1000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>true</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>The stone glows for a moment before disappearing.</useMessage>
+            <statModifiers>
+                <maxHp>0</maxHp>
+                <currentHp>10</currentHp>
+                <strength>0</strength>
+                <agility>0</agility>
+                <intelligence>0</intelligence>
+                <defense>0</defense>
+                <speed>0</speed>
+            </statModifiers>
+        </useableData>
+    </ItemData>
+</itemList>

@@ -1,0 +1,75 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<itemList id="books">
+    <ItemData id="old_journal">
+        <character>"</character>
+        <color>0x8B4513</color>
+        <inventoriableData>
+            <name>Old Journal</name>
+            <description>An old, leatherbound journal.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>0</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>
+She is the Lord of the Wood, even to the end of time and the gifts of the
+men of Leng. So from the wells of night to the gulfs of space, and from
+the gulfs of space to the wells of night, ever the praises of Great
+Cthulhu, of Tsathoggua, and of Him Who is not to be Named. Ever Their
+praises, and abundance to the Black Goat of the Woods. Ia! Shub-Niggurath!
+The Goat with a Thousand Young! Ia! Shub-Niggurath! The Black Goat of the
+Woods with a Thousand Young!
+
+
+And it has come to pass that the Lord of the Woods, being accompanied by
+seven and nine, down the onyx steps bringing tributes to Him in the Gulf,
+Azathoth, He of Whom Thou has taught us marvels innumerable. On the wings
+of night out beyond space, out beyond the Abyss, to That whereof Yuggoth
+is the youngest child, rolling alone in black aether at the rim.
+
+
+Go out among men and find the ways thereof, that He in the Gulf may know.
+To Nyarlathotep, Mighty Messenger, must all things be told. And He shall
+put on the semblance of men, the waxen mask and the robe that hides, and
+come down from the world of Seven Suns to mock us.
+
+
+Nyarlathotep, Great Messenger, bringer of strange joy to Yuggoth through
+the void, Father of the Million Favoured Ones, Stalker among the night.</useMessage>
+        </useableData>
+    </ItemData>
+    <ItemData id="necronomicon">
+        <character>"</character>
+        <color>0x000000</color>
+        <inventoriableData>
+            <name>The Necronomicon</name>
+            <description>A massive tome bound in leather with two iron clasps.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>0</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>To read this tome of forbidden lore would surely lead to madness.</useMessage>
+        </useableData>
+    </ItemData>
+</itemList>

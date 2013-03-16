@@ -1,0 +1,99 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<areaMapData name="Lair of the Warlock">
+    <isDangerous>true</isDangerous>
+    <tiles>
+        <tile id="N">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>false</barrier>
+            <alwaysOnTop>false</alwaysOnTop>
+            <name>Exit</name>
+            <description>Exit to the north.</description>
+        </tile>
+        <tile id="_">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Invisible Barrier</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id=".">
+            <character>.</character>
+            <foreground>0x808080</foreground>
+            <barrier>false</barrier>
+            <name>Floor</name>
+            <description>Barren volcanic rock.</description>
+        </tile>
+        <tile id="~">
+            <character>~</character>
+            <foreground>0xFF0000</foreground>
+            <barrier>true</barrier>
+            <name>Lava</name>
+            <description>Bubbling lava.</description>
+        </tile>
+        <tile id="^">
+            <character>^</character>
+            <foreground>0x808080</foreground>
+            <barrier>true</barrier>
+            <name>Stalagmite</name>
+            <description>A stalagmite.</description>
+        </tile>
+    </tiles>
+    <width>43</width>
+    <map>
+        _____________~~~~^^^^N^^~~~~~______________
+        ____________~~~~^^^....^^^^~~~~____________
+        ____________~~~~^^^^.....^^^~~~~___________
+        ___________~~~~~^^^.......^^^~~~~__________
+        ___________~~~~~^^^.......^^^^~~~__________
+        ____________~~~~^^^.......^^^^~~~__________
+        ____________~~~~^^^.......^^^~~~___________
+        _____________~~~~^^^...^..^^~~~____________
+        _____________~~~~~^^^^^^^.^~~~_____________
+        ______________~~~~~~^^^..^~~~______________
+        ______________~~~~~~^^..^~~~_______________
+        ____________~~~~~~^^^..~~~~________________
+        __________~~~~~~~~~~.^.^~~~________________
+        ________~~~~~~^^^^^.^^.^~~~~_______________
+        ______~~~~~^^^^^^^^^..^^~~~~~______________
+        _____~~~~~^^........^..^^^^~~~_____________
+        ____~~~~~~^............^^^^^~~~____________
+        ____~~~~~^^............^^^^^^~~~~__________
+        ____~~~~~^................^^^^~~~~_________
+        ____~~~~~^......^.........^^^^~~~~_________
+        ____~~~~~^^.....^.........^.^^^~~~~________
+        ____~~~~~^^^^....^..........^^^~~~~________
+        _____~~~~~^^.....^...........^^~~~~________
+        ______~~~~~^^....^...........^~~~~~________
+        _______~~~~~^^^^~~~~~~~~~~~~~^~~~~_________
+        ________~~~~~~~~~~~~~~~~~~~~^^~~~__________
+        __________~~~~~~~~~~~~~~~~~~^^~~___________
+        ____________~~~~~~~~~~~~~~~~~~~____________
+        ___________________________________________
+    </map>
+    <exits>
+        <exit direction="NORTH" tileId="N"/>
+    </exits>
+    <npcs>
+        <npc>warlock</npc>
+    </npcs>
+</areaMapData>

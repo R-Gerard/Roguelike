@@ -1,0 +1,110 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<dungeonMapData name="Another Dimension" type="NON_EUCLIDEAN">
+    <foreground>0x808080</foreground>
+    <nonEuclideanParameters>
+        <minRooms>45</minRooms>
+        <maxRooms>55</maxRooms>
+        <rectangleRoomFreq>300</rectangleRoomFreq>
+        <hallwayFrequency>600</hallwayFrequency>
+        <roundRoomFreq>100</roundRoomFreq>
+        <hasStairs>false</hasStairs>
+    </nonEuclideanParameters>
+    <npcPopulationParameters>
+        <populationCap>6</populationCap>
+        <spawnParameters>
+            <min>2</min>
+            <max>5</max>
+        </spawnParameters>
+        <respawnParameters>
+            <min>0</min>
+            <max>2</max>
+        </respawnParameters>
+    </npcPopulationParameters>
+    <spawnLists>
+        <spawnList startLevel="0">
+            <npc relativeFrequency="250">rat_thing</npc>
+            <npc relativeFrequency="25">yithian</npc>
+            <npc relativeFrequency="50">mi-go</npc>
+            <npc relativeFrequency="25">elder_thing</npc>
+        </spawnList>
+        <spawnList startLevel="5">
+            <npc relativeFrequency="250">rat_thing</npc>
+            <npc relativeFrequency="25">yithian</npc>
+            <npc relativeFrequency="50">mi-go</npc>
+            <npc relativeFrequency="25">elder_thing</npc>
+            <npc relativeFrequency="25">nightgaunt</npc>
+            <npc relativeFrequency="50">leng_spider</npc>
+        </spawnList>
+        <spawnList startLevel="10">
+            <npc relativeFrequency="250">rat_thing</npc>
+            <npc relativeFrequency="25">yithian</npc>
+            <npc relativeFrequency="50">mi-go</npc>
+            <npc relativeFrequency="25">elder_thing</npc>
+            <npc relativeFrequency="25">nightgaunt</npc>
+            <npc relativeFrequency="50">leng_spider</npc>
+            <npc relativeFrequency="10">star_spawn</npc>
+            <npc relativeFrequency="5">deputy</npc>
+        </spawnList>
+        <spawnList startLevel="15">
+            <npc relativeFrequency="25">elder_thing</npc>
+            <npc relativeFrequency="25">nightgaunt</npc>
+            <npc relativeFrequency="50">leng_spider</npc>
+            <npc relativeFrequency="10">star_spawn</npc>
+            <npc relativeFrequency="5">deputy</npc>
+        </spawnList>
+        <spawnList startLevel="20">
+            <npc relativeFrequency="25">elder_thing</npc>
+            <npc relativeFrequency="25">nightgaunt</npc>
+            <npc relativeFrequency="50">leng_spider</npc>
+            <npc relativeFrequency="10">star_spawn</npc>
+        </spawnList>
+    </spawnLists>
+    <tiles>
+        <tile id="_">
+            <character> </character>
+            <foreground>0x000000</foreground>
+            <background>0x000000</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Invisible Barrier</name>
+            <description>You can't see there.</description>
+        </tile>
+        <tile id=".">
+            <character>.</character>
+            <foreground>0x808080</foreground>
+            <background>0x202020</background>
+            <barrier>false</barrier>
+            <alwaysOnTop>false</alwaysOnTop>
+            <name>Floor</name>
+            <description>Stone floor.</description>
+        </tile>
+        <tile id="#">
+            <character>&#9608;</character>
+            <foreground>0x808080</foreground>
+            <background>0x808080</background>
+            <barrier>true</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Wall</name>
+            <description>Stone wall.</description>
+        </tile>
+    </tiles>
+    <specialRoomFiles>
+        <specialRoomFile>/data/7DRL2013/maps/warlockLair.xml</specialRoomFile>
+    </specialRoomFiles>
+</dungeonMapData>

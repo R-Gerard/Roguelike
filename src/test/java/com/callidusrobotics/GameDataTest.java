@@ -133,4 +133,132 @@ public class GameDataTest {
 
     return instructions;
   }
+
+  @Test
+  public void make7drlGameData() throws Exception {
+    data.loadingScreen = make7drlLoadingScreen();
+    data.splashScreen = make7drlSplashScreen();
+    data.introduction = make7drlIntroduction();
+    data.legalNotice = makeLegalNotice();
+    data.instructions = makeInstructions();
+
+    data.playerFile = "/data/7DRL2013/player.xml";
+    data.startingAreaFile = "/data/7DRL2013/maps/miskatonicUniversity.xml";
+    data.factionDataFile = "/data/7DRL2013/factionData.xml";
+
+    data.itemListFiles = Arrays.asList(
+        "/data/7DRL2013/items/armor.xml",
+        "/data/7DRL2013/items/books.xml",
+        "/data/7DRL2013/items/miscellany.xml",
+        "/data/7DRL2013/items/weapons.xml");
+
+    data.npcListFiles = Arrays.asList(
+        "/data/7DRL2013/npcs/townsfolk.xml",
+        "/data/7DRL2013/npcs/monsters.xml");
+
+    data.splashForeground = TrueColor.BLUE.toString();
+    data.splashBackground = TrueColor.BLACK.toString();
+    data.boxForeground = TrueColor.DIM_GRAY.toString();
+    data.boxBackground = TrueColor.BLACK.toString();
+    data.fontForeground = TrueColor.LAVENDER.toString();
+    data.fontBackground = TrueColor.BLACK.toString();
+    data.selectForeground = TrueColor.BLACK.toString();
+    data.selectBackground = TrueColor.LAVENDER.toString();
+  }
+
+  private String make7drlLoadingScreen() {
+    return "\n Loading. Please wait...";
+  }
+
+  private String make7drlSplashScreen() {
+    final String splashScreen = "\n" +
+        "                                                                               \n" +
+        "  *                             #     #                            ####  ##    \n" +
+        "   *                 ***        ##   ##           ##               ##  # ##    \n" +
+        "   **               *****       ### ###       ##  ##               ##  # ##    \n" +
+        "    ***             ******      ####### ## # #### #####  ###   ### ####  ##    \n" +
+        "    *****          *** ****     ## # ##  # #  ##  ##  # ## ## ##   ## #  ##    \n" +
+        "     ******       ****   ***    ##   ##  # #  ##  ##  # ## ##   ## ##  # ##    \n" +
+        "     *** ****     **      ***   ##   ##  ###   ## ##  #  ###  ###  ##  # ##### \n" +
+        "      **   ***** ***        **            #                                    \n" +
+        "       **     *****          **          #                                     \n" +
+        "       ***        *****       **                  **                           \n" +
+        "        ** *   **      *********        **********                             \n" +
+        "         ** *  *       *       **  ************                                \n" +
+        "          *   **        *        *       ****                                  \n" +
+        "          **  *       * *   **** **    ****                                    \n" +
+        "           *  *    **   **     *  *   ***                                      \n" +
+        "             *   **    ****   *     ***                                        \n" +
+        "             *  ***    ***  **    ***                                          \n" +
+        "             * *  ***** ***      **                                            \n" +
+        "            **  *              **   ***                                        \n" +
+        "            **   **          ***     **                                        \n" +
+        "            **    **        **       ***                                       \n" +
+        "            **     **     ***         **                                       \n" +
+        "           ***      ***  **           ***                                      \n" +
+        "           **        *****             **                                      \n" +
+        "           **         ****       *   * **                                      \n" +
+        "           *            ***  *  ***   * **                                     \n" +
+        "           *        **   ******    *    **                                     \n" +
+        "           *       ***     ******    * ****                                    \n" +
+        "           *      ***       ***** *      **                                    \n" +
+        "           **    ***          *****      **                                    \n" +
+        "           **   ***             ***** ******                                   \n" +
+        "          ***  ***                **********                                   \n" +
+        "          *** ***                    *******                                   \n" +
+        "          *******                       *****                                  \n" +
+        "           *****                                                               \n" +
+        "           ****                                                                \n" +
+        "           ***                                                                 \n" +
+        "           **                                                                  \n" +
+        "           **                                                                  \n" +
+        "                                                                               \n" +
+        "                                                                               \n" +
+        "                                                                               \n" +
+        "                                                                               \n" +
+        "                                                                               \n" +
+        "                                                                               \n" +
+        "                                                Copyright (c) 2013 Rusty Gerard\n";
+
+    return splashScreen;
+  }
+
+
+  private String make7drlIntroduction() {
+    final String introduction = "\n" +
+        "It all started in the autumn of 1925 in the sleepy city of Arkham,\n" +
+        "Massachusetts. The men had set off to work, students were headed to class\n" +
+        "at Miskatonic University, and you thought it was going to be another\n" +
+        "routine patrol. You even brought bread crumbs to feed the birds. Of\n" +
+        "course, that was until strange happenings started cropping up all over.\n\n\n" +
+
+        "Farmer Akeley called the station to report that he had seen some sort of\n" +
+        "\"Pinkish things that were about five feet long, with crustacous bodies\"\n" +
+        "out on his property. It was dismissed out of hand until more reports came\n" +
+        "from all over the city, even the Mayor. That was when the the Sheriff\n" +
+        "rounded up all able-bodied men and women to investigate the situation.\n\n\n" +
+
+        "At first no one knew from where these mysterious arcane powers were\n" +
+        "coming from but all of the signs lead you to the University District.\n" +
+        "It was then that you realized the powers were emanating from the very\n" +
+        "campus itself.\n\n\n" +
+
+        "Upon arriving onto the scene you notice a man running in a blind panic\n" +
+        "from the main building. Selecting you out of the crowd at random, he\n" +
+        "grabs you by the arm and frantically spouts nonsense about some book\n" +
+        "called the \"Necronomicon:\"\n\n\n" +
+
+        "\"It was stolen from the archives last night! It must be recovered! Only\n" +
+        "then will the chaos stop and the University be set back to its original\n" +
+        "state!\" Explaining that he is the University Library's archivist, the\n" +
+        "old man pushes a mysterious object into your hands and implores you to\n" +
+        "enter the main building at once.\n\n\n" +
+
+        "Armed only with your service revolver and a hand-written journal filled\n" +
+        "with arcane lore that you do not comprehend, are you brave enough to do\n" +
+        "battle with the horrors that lurk within the non-Euclidean labyrinth to\n" +
+        "recover the Necronomicon and bring the chaos to an end in Arkham?\n";
+
+    return introduction;
+  }
 }

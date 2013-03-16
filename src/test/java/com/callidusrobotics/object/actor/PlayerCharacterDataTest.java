@@ -54,4 +54,19 @@ public class PlayerCharacterDataTest {
         fixedItems,
         null);
   }
+
+  @Test
+  public void make7drlPlayerCharacter() throws Exception {
+    final List<GameObjectItemData> fixedItems = Arrays.asList(
+        new GameObjectItemData(ItemUtil.makePocketKnife().getId(), 1, null, null),
+        new GameObjectItemData(ItemUtil.makeBreadcrumb().getId(), 450, null, 100),
+        new GameObjectItemData(ItemUtil.make38Ammo().getId(), 45, null, 10),
+        new GameObjectItemData(ItemUtil.makeServiceRevolver().getId(), 1, null, null),
+        new GameObjectItemData(ItemUtil.makeJournal().getId(), 1, null, null));
+
+    data = new PlayerCharacterData(TrueColor.STEEL_BLUE,
+        new StatBlock(30, 30, 15, 15, 15, 15, 100),
+        fixedItems,
+        null);
+  }
 }

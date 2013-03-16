@@ -34,4 +34,29 @@ public class NonPlayerCharacterListTest {
         ActorUtil.makeDemoTownsfolk(),
         ActorUtil.makeDemoMonster());
   }
+
+  @Test
+  public void make7drlTownsfolkList() throws Exception {
+    data.identifier = "townsfolk";
+    data.npcs = Arrays.asList(
+        ActorUtil.make7drlDeputy(),
+        ActorUtil.make7drlProfessorAtwood(),
+        ActorUtil.make7drlReporter(),
+        ActorUtil.make7drlSheriff(),
+        ActorUtil.make7drlStudent());
+  }
+
+  @Test
+  public void make7drlMonstersList() throws Exception {
+    data.identifier = "monsters";
+    data.npcs = Arrays.asList(
+        ActorUtil.make7drlElderThing(),
+        ActorUtil.make7drlLengSpider(),
+        ActorUtil.make7drlMiGo(),
+        ActorUtil.make7drlNightgaunt(),
+        ActorUtil.make7drlRatThing(),
+        ActorUtil.make7drlStarSpawn(),
+        ActorUtil.make7drlWarlock(),
+        ActorUtil.make7drlYithian());
+  }
 }

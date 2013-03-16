@@ -66,4 +66,20 @@ public class TileDataUtil {
 
     return tileData;
   }
+
+  public static TileData makeFountain(final char identifier) {
+    return new TileData(identifier, '&', TrueColor.BLUE, null, true, null, "Fountain", "A fountain.");
+  }
+
+  public static TileData makeStalagmite(final char identifier) {
+    return new TileData(identifier, '^', TrueColor.GRAY, null, true, null, "Stalagmite", "A stalagmite.");
+  }
+
+  public static TileData makeLavaRock(final char identifier) {
+    return new TileData(identifier, '.', TrueColor.GRAY, null, false, null, "Floor", "Barren volcanic rock.");
+  }
+
+  public static TileData makeLava(final char identifier) {
+    return new TileData(identifier, '~', TrueColor.RED, null, true, null, "Lava", "Bubbling lava.");
+  }
 }

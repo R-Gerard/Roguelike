@@ -50,17 +50,17 @@ import com.callidusrobotics.util.XmlParseException;
  * @author Rusty
  * @since 0.0.1
  */
-public final class Roguelike {
+public final class MythosRL {
   public static final String FONT_SIZE = "font_size_points";
   public static final String ANIMATION_SPEED = "animation_speed_milliseconds";
 
-  private Roguelike() {
+  private MythosRL() {
     throw new NotInstantiableError();
   }
 
   @SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
   public static void main(final String[] args) throws IOException {
-    final Configuration properties = getProperties(Roguelike.class.getSimpleName() + ".properties");
+    final Configuration properties = getProperties(MythosRL.class.getSimpleName() + ".properties");
     final float fontSize = properties.getFloat(FONT_SIZE);
     final int animationSpeed = properties.getInt(ANIMATION_SPEED);
 
@@ -93,7 +93,7 @@ public final class Roguelike {
   }
 
   private static String getImplementationVersion() {
-    final Package myPackage = Roguelike.class.getPackage();
+    final Package myPackage = MythosRL.class.getPackage();
 
     if (myPackage.getImplementationTitle() == null || myPackage.getImplementationVersion() == null) {
       return "Roguelike Debug Version";
@@ -105,14 +105,14 @@ public final class Roguelike {
   private static GameData getGameData(final String[] args) {
     final XmlMarshaller xmlMarshaller = new XmlMarshaller(GameData.class);
 
-    String gameName = "DEMO";
+    String gameName = "7DRL2013";
     if (args.length > 0) {
       gameName = args[0];
     }
 
     // TODO: Add support for external GameData files
     final String fileName = "/data/" + gameName + "/gameData.xml";
-    final InputStream resource = Roguelike.class.getResourceAsStream(fileName);
+    final InputStream resource = MythosRL.class.getResourceAsStream(fileName);
     String details;
     if (resource == null) {
       details = "The resource does not exist.";
@@ -157,7 +157,7 @@ public final class Roguelike {
     final PropertiesConfiguration properties = new PropertiesConfiguration();
     final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout(properties);
 
-    layout.setHeaderComment(Roguelike.class.getSimpleName() + " properties file\nThis file will be automatically regenerated if you delete it.");
+    layout.setHeaderComment(MythosRL.class.getSimpleName() + " properties file\nThis file will be automatically regenerated if you delete it.");
     layout.setComment(FONT_SIZE, "For best viewing results set the font size to a multiple of 8.0.\n8.0 or 16.0 is recommended depending on screen resolution.");
     layout.setComment(ANIMATION_SPEED, "The delay between animation steps, in milliseconds. (1000 = 1 second)");
     layout.setBlancLinesBefore(ANIMATION_SPEED, 1);

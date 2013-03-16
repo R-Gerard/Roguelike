@@ -1,0 +1,183 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<itemList id="weapons">
+    <ItemData id="pocket_knife">
+        <character>(</character>
+        <color>0xC0C0C0</color>
+        <inventoriableData>
+            <name>Pocket Knife</name>
+            <description>A small knife.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>200</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Ouch! The blade is sharp.</useMessage>
+        </useableData>
+        <equipableData>
+            <range>0</range>
+            <damage>2</damage>
+            <equipmentSlots>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+    <ItemData id="cavalry_saber">
+        <character>(</character>
+        <color>0xC0C0C0</color>
+        <inventoriableData>
+            <name>Cavalry Saber</name>
+            <description>Model 1860 Light Cavalry Saber.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>1000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>You rattle the saber in a flagrant display of power.</useMessage>
+        </useableData>
+        <equipableData>
+            <range>0</range>
+            <damage>10</damage>
+            <equipmentSlots>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+    <ItemData id="service_revolver">
+        <character>}</character>
+        <color>0xC0C0C0</color>
+        <inventoriableData>
+            <name>Service Revolver</name>
+            <description>Smith &amp; Wesson model 1899 Military &amp; Police revolver.
+
+Caliber: .38 Special</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>1000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>true</loadable>
+            <maximumCapacity>6</maximumCapacity>
+            <reloadSpeed>6</reloadSpeed>
+            <useMessage>BANG!</useMessage>
+            <ammunitionType>38_special_ammo</ammunitionType>
+        </useableData>
+        <equipableData>
+            <range>8</range>
+            <damage>20</damage>
+            <equipmentSlots>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+    <ItemData id="38_special_ammo">
+        <character>/</character>
+        <color>0xFFD700</color>
+        <inventoriableData>
+            <name>.38 Special Cartridge</name>
+            <description>A low velocity, medium caliber bullet.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>5</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Try loading this in a firearm.</useMessage>
+        </useableData>
+    </ItemData>
+    <ItemData id="colt_peacemaker">
+        <character>}</character>
+        <color>0xC0C0C0</color>
+        <inventoriableData>
+            <name>Colt Peacemaker</name>
+            <description>Colt model 1873 Single Action Army revolver.
+
+Caliber: .45 Colt</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>2500</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>true</loadable>
+            <maximumCapacity>6</maximumCapacity>
+            <reloadSpeed>1</reloadSpeed>
+            <useMessage>KABOOM!</useMessage>
+            <ammunitionType>45_colt_ammo</ammunitionType>
+        </useableData>
+        <equipableData>
+            <range>16</range>
+            <damage>70</damage>
+            <equipmentSlots>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+    <ItemData id="45_colt_ammo">
+        <character>/</character>
+        <color>0xFFD700</color>
+        <inventoriableData>
+            <name>.45 Colt Cartridge</name>
+            <description>A low velocity, heavy caliber bullet.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>25</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Try loading this in a firearm.</useMessage>
+        </useableData>
+    </ItemData>
+    <ItemData id="powder_of_ibn_ghazi">
+        <character>!</character>
+        <color>0x800080</color>
+        <inventoriableData>
+            <name>Powder of Ibn-Ghazi</name>
+            <description>A magical powder of great potency.</description>
+            <maxPerSlot>-1</maxPerSlot>
+            <value>1000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>true</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Suddenly you realize all is not as it seems.</useMessage>
+            <statModifiers>
+                <maxHp>0</maxHp>
+                <currentHp>0</currentHp>
+                <strength>0</strength>
+                <agility>0</agility>
+                <intelligence>2</intelligence>
+                <defense>0</defense>
+                <speed>0</speed>
+            </statModifiers>
+        </useableData>
+        <equipableData>
+            <range>2</range>
+            <damage>1000</damage>
+            <equipmentSlots>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+</itemList>

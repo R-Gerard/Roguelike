@@ -38,4 +38,16 @@ public class ActorFactionDataTest {
     data.factions.add(new ActorFactionElement(ActorFactionData.PLAYER_FACTION, enemies, neutrals, allies));
     data.factions.add(new ActorFactionElement(ActorUtil.DEMO_TOWNSFOLK_FACTION, enemies, null, null));
   }
+
+  @Test
+  public void make7drlFactions() throws Exception {
+    data = new ActorFactionData();
+    data.factions = new ArrayList<ActorFactionElement>();
+
+    final List<String> enemies = Arrays.asList(ActorUtil._7DRL_MONSTERS_FACTION);
+    final List<String> neutrals = Arrays.asList(ActorUtil._7DRL_TOWNSFOLK_FACTION, ActorUtil._7DRL_DEPUTIES_FACTION);
+    final List<String> allies = Collections.emptyList();
+
+    data.factions.add(new ActorFactionElement(ActorFactionData.PLAYER_FACTION, enemies, neutrals, allies));
+  }
 }

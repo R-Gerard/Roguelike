@@ -1,0 +1,180 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<nonPlayerCharacterList id="townsfolk">
+    <NonPlayerCharacterData id="deputy">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0x4682B4</foreground>
+            <name display="Deputy"/>
+            <description>A deputy of Arkham.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>deputies</faction>
+        <statBlock>
+            <maxHp>25</maxHp>
+            <currentHp>25</currentHp>
+            <strength>10</strength>
+            <agility>10</agility>
+            <intelligence>10</intelligence>
+            <defense>10</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>I'd be careful if I were you. There are monsters everywhere!</message>
+            <message>Do you know the way out?</message>
+            <message>I'm lost.</message>
+            <message>Got any ammo?</message>
+        </messages>
+        <fixedItems>
+            <item id="money" fixedQuantity="1" randomQuantity="5"/>
+            <item id="service_revolver" fixedQuantity="1"/>
+        </fixedItems>
+        <randomItems>
+            <item id="38_special_ammo" fixedQuantity="10" randomProbability="25" randomQuantity="10"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="professor_atwood">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0xFFD700</foreground>
+            <name display="Professor Atwood" properNoun="true"/>
+            <description>A professor of Miskatonic University.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>townsfolk</faction>
+        <statBlock>
+            <maxHp>10</maxHp>
+            <currentHp>10</currentHp>
+            <strength>1</strength>
+            <agility>1</agility>
+            <intelligence>1</intelligence>
+            <defense>1</defense>
+            <speed>50</speed>
+        </statBlock>
+        <startingPosition row="2" col="23"/>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>I believe a portal to another world has opened here.</message>
+            <message>The campus has become warped. It's like a maze in there.</message>
+            <message>I wandered aimlessly until I found my way outside.</message>
+        </messages>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="reporter">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0xB8860B</foreground>
+            <name display="Reporter"/>
+            <description>A reporter for the Miskatonic Herald.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>townsfolk</faction>
+        <statBlock>
+            <maxHp>20</maxHp>
+            <currentHp>20</currentHp>
+            <strength>10</strength>
+            <agility>5</agility>
+            <intelligence>5</intelligence>
+            <defense>5</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>What a scoop! This is the story of the century.</message>
+            <message>Can I interview you?</message>
+            <message>Have you seen a creature?</message>
+            <message>Care to make a statement?</message>
+            <message>If I can get a photograph of one of them I'm sure to get a Pulitzer!</message>
+        </messages>
+        <fixedItems>
+            <item id="money" fixedQuantity="1" randomQuantity="5"/>
+        </fixedItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="sheriff">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0x00008B</foreground>
+            <name display="Sheriff"/>
+            <description>The local sheriff.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>townsfolk</faction>
+        <statBlock>
+            <maxHp>35</maxHp>
+            <currentHp>35</currentHp>
+            <strength>15</strength>
+            <agility>15</agility>
+            <intelligence>15</intelligence>
+            <defense>10</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>Keep calm in front of the civilians.</message>
+            <message>Stay on guard.</message>
+            <message>Keep an eye out for more of those creatures.</message>
+            <message>Did you remember to equip your sidearm?</message>
+        </messages>
+        <fixedItems>
+            <item id="money" fixedQuantity="10" randomQuantity="10"/>
+            <item id="colt_peacemaker" fixedQuantity="1"/>
+            <item id="45_colt_ammo" fixedQuantity="45" randomQuantity="10"/>
+        </fixedItems>
+        <randomItems>
+            <item id="cavalry_saber" fixedQuantity="1" randomProbability="50"/>
+        </randomItems>
+    </NonPlayerCharacterData>
+    <NonPlayerCharacterData id="student">
+        <displayInfo>
+            <character>t</character>
+            <foreground>0xFFC0CB</foreground>
+            <name display="Student"/>
+            <description>A student of Miskatonic University.</description>
+            <size>MEDIUM</size>
+        </displayInfo>
+        <faction>townsfolk</faction>
+        <statBlock>
+            <maxHp>10</maxHp>
+            <currentHp>10</currentHp>
+            <strength>1</strength>
+            <agility>1</agility>
+            <intelligence>1</intelligence>
+            <defense>1</defense>
+            <speed>50</speed>
+        </statBlock>
+        <behaviors>
+            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+        </behaviors>
+        <messages>
+            <message>Hi.</message>
+            <message>Hello.</message>
+            <message>I have an exam today. I hope my professor is okay.</message>
+            <message>Maybe I should go back to the dorms.</message>
+            <message>Are we safe here?</message>
+            <message>I keep hearing strange noises coming from inside.</message>
+        </messages>
+    </NonPlayerCharacterData>
+</nonPlayerCharacterList>

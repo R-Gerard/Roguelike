@@ -2,15 +2,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.callidusrobotics.rl</groupId>
-  <artifactId>Roguelike</artifactId>
+  <artifactId>MythosRL</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1</version>
-  <name>Roguelike</name>
+  <version>0.0.2</version>
+  <name>MythosRL</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.jdkVersion>1.7</project.build.jdkVersion>
-    <project.mainClass>com.callidusrobotics.Roguelike</project.mainClass>
+    <project.mainClass>com.callidusrobotics.MythosRL</project.mainClass>
     <plugins.proguardVersion>4.8</plugins.proguardVersion>
   </properties>
 

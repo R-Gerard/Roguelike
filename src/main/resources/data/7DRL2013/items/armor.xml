@@ -1,0 +1,84 @@
+<!--
+ Copyright (C) 2013 Rusty Gerard
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<itemList id="armor">
+    <ItemData id="pallid_mask">
+        <character>[</character>
+        <color>0xFAEBD7</color>
+        <inventoriableData>
+            <name>Pallid Mask</name>
+            <description>A smooth and featureless mask with faint, vermiculated markings.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>10000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>Studying the intricate patterns you become hypnotized momentarily.</useMessage>
+        </useableData>
+        <equipableData>
+            <range>0</range>
+            <damage>0</damage>
+            <statBlock>
+                <maxHp>5</maxHp>
+                <currentHp>0</currentHp>
+                <strength>0</strength>
+                <agility>5</agility>
+                <intelligence>0</intelligence>
+                <defense>5</defense>
+                <speed>0</speed>
+            </statBlock>
+            <equipmentSlots>
+                <equipmentSlot>HEAD</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+    <ItemData id="elder_sign_amulet">
+        <character>[</character>
+        <color>0x0000FF</color>
+        <inventoriableData>
+            <name>Elder Sign Amulet</name>
+            <description>An amulet in the shape of a warped, five-pointed star with a flaming eye in the center.</description>
+            <maxPerSlot>1</maxPerSlot>
+            <value>5000</value>
+        </inventoriableData>
+        <useableData>
+            <disposable>false</disposable>
+            <loadable>false</loadable>
+            <maximumCapacity>-1</maximumCapacity>
+            <useMessage>The eye gazes back at you.</useMessage>
+        </useableData>
+        <equipableData>
+            <range>0</range>
+            <damage>15</damage>
+            <statBlock>
+                <maxHp>5</maxHp>
+                <currentHp>0</currentHp>
+                <strength>5</strength>
+                <agility>0</agility>
+                <intelligence>0</intelligence>
+                <defense>5</defense>
+                <speed>0</speed>
+            </statBlock>
+            <equipmentSlots>
+                <equipmentSlot>NECK</equipmentSlot>
+                <equipmentSlot>WEAPON</equipmentSlot>
+            </equipmentSlots>
+        </equipableData>
+    </ItemData>
+</itemList>

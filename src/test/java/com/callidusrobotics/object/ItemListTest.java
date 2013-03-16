@@ -68,4 +68,42 @@ public class ItemListTest {
         ItemUtil.make38Ammo(),
         ItemUtil.makeHealingStone());
   }
+
+  @Test
+  public void make7drlArmorList() throws Exception {
+    data.identifier = "armor";
+    data.items = Arrays.asList(
+        ItemUtil.makePallidMask(),
+        ItemUtil.makeElderSignAmulet());
+  }
+
+  @Test
+  public void make7drlBooksList() throws Exception {
+    data.identifier = "books";
+    data.items = Arrays.asList(
+        ItemUtil.makeJournal(),
+        ItemUtil.makeNecronomicon());
+  }
+
+  @Test
+  public void make7drlMiscellanyList() throws Exception {
+    data.identifier = "miscellany";
+    data.items = Arrays.asList(
+        ItemUtil.makeBreadcrumb(),
+        ItemUtil.makeMoney(),
+        ItemUtil.makeHealingStone());
+  }
+
+  @Test
+  public void make7drlWeaponsList() throws Exception {
+    data.identifier = "weapons";
+    data.items = Arrays.asList(
+        ItemUtil.makePocketKnife(),
+        ItemUtil.makeCavalrySaber(),
+        ItemUtil.makeServiceRevolver(),
+        ItemUtil.make38Ammo(),
+        ItemUtil.makeColtPeacemaker(),
+        ItemUtil.make45ColtAmmo(),
+        ItemUtil.makePowderOfIbnGhazi());
+  }
 }

@@ -17,6 +17,7 @@
 
 package com.callidusrobotics.locale;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,5 +62,60 @@ public class DungeonMapDataTest {
     final NpcPopulationParameters spawnParams = new NpcPopulationParameters(6, 2, 5, 0, 2);
 
     data = new DungeonMapData("Demo Dungeon", TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, null);
+  }
+
+  @Test
+  public void make7drlAnotherDimension() throws Exception {
+    data.name = "Another Dimension";
+
+    final List<TileData> standardTiles = Arrays.asList(TileDataUtil.makeInvisibleBarrier('_'), TileDataUtil.makeFloor('.'), TileDataUtil.makeWall('#'));
+
+    // The first few levels are only easy monsters that drop items
+    SpawnList level0 = new SpawnList(0, new ArrayList<SpawnEntry>());
+    level0.npcs.addAll(Arrays.asList(
+        new SpawnEntry(250, ActorUtil.make7drlRatThing().getId()),
+        new SpawnEntry(25, ActorUtil.make7drlYithian().getId()),
+        new SpawnEntry(50, ActorUtil.make7drlMiGo().getId()),
+        new SpawnEntry(25, ActorUtil.make7drlElderThing().getId())));
+
+    // Next, add tougher monsters that don't drop items
+    SpawnList level5 = new SpawnList(5, new ArrayList<SpawnEntry>());
+    level5.npcs.addAll(level0.npcs);
+    level5.npcs.addAll(Arrays.asList(
+        new SpawnEntry(25, ActorUtil.make7drlNightgaunt().getId()),
+        new SpawnEntry(50, ActorUtil.make7drlLengSpider().getId())));
+
+    // Add the rest of the NPCs
+    SpawnList level10 = new SpawnList(10, new ArrayList<SpawnEntry>());
+    level10.npcs.addAll(level5.npcs);
+    level10.npcs.addAll(Arrays.asList(
+        new SpawnEntry(10, ActorUtil.make7drlStarSpawn().getId()),
+        new SpawnEntry(5, ActorUtil.make7drlDeputy().getId())));
+
+    // Drop off the weakest monsters
+    SpawnList level15 = new SpawnList(15, new ArrayList<SpawnEntry>());
+    level15.npcs.addAll(level10.npcs);
+    level15.npcs.remove(new SpawnEntry(1, ActorUtil.make7drlRatThing().getId()));
+    level15.npcs.remove(new SpawnEntry(1, ActorUtil.make7drlYithian().getId()));
+    level15.npcs.remove(new SpawnEntry(1, ActorUtil.make7drlMiGo().getId()));
+
+    // Remove any allies in the deepest levels
+    SpawnList level20 = new SpawnList(20, new ArrayList<SpawnEntry>());
+    level20.npcs.addAll(level15.npcs);
+    level20.npcs.remove(new SpawnEntry(1, ActorUtil.make7drlDeputy().getId()));
+
+    final List<SpawnList> npcs = Arrays.asList(
+        level0,
+        level5,
+        level10,
+        level15,
+        level20);
+
+    final NonEuclideanParameters neParams = new NonEuclideanParameters(45, 55, 300, 600, 100, false);
+    final NpcPopulationParameters spawnParams = new NpcPopulationParameters(6, 2, 5, 0, 2);
+
+    final List<String> specialRoomFiles = Arrays.asList("/data/7DRL2013/maps/warlockLair.xml");
+
+    data = new DungeonMapData("Another Dimension", TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, specialRoomFiles);
   }
 }
