@@ -105,6 +105,8 @@ public class AreaMapDataTest {
         Arrays.asList((new GameObjectItemData(ItemUtil.makeHealingStone().getId(), 1, null, null))),
         null));
 
+    data.fovAlgorithm = FieldOfViewType.SIMPLE_RADIUS.toString();
+
     data.map = "\n" +
         "TTTTTTTTTNTTTTTTTTT\n" +
         "T.................T\n" +
@@ -137,7 +139,7 @@ public class AreaMapDataTest {
     data.exits = Arrays.asList(new ExitData(Direction.NORTH, 'N', null, "/data/7DRL2013/dungeons/anotherDimension.xml"));
 
     data.tiles = new LinkedList<TileData>();
-    data.tiles.add(TileDataUtil.makeExit('N', Direction.NORTH));
+    data.tiles.add(TileDataUtil.makePortal('N'));
     data.tiles.add(TileDataUtil.makeWall('#'));
     data.tiles.add(TileDataUtil.makeInvisibleBarrier('_'));
     data.tiles.add(TileDataUtil.makeSteps('^'));
@@ -145,6 +147,9 @@ public class AreaMapDataTest {
     data.tiles.add(TileDataUtil.makeGrass('.'));
     data.tiles.add(TileDataUtil.makeTree('T'));
     data.tiles.add(TileDataUtil.makePath('='));
+    data.tiles.add(TileDataUtil.makeChest('x',
+        Arrays.asList((new GameObjectItemData(ItemUtil.makeHealingStone().getId(), 1, null, null))),
+        null));
 
     data.npcs = new LinkedList<String>();
     data.npcs.add(ActorUtil.make7drlProfessorAtwood().getId());
@@ -156,7 +161,7 @@ public class AreaMapDataTest {
     data.map = "\n" +
         "########################N########################\n" +
         "T....................^##^##^....................T\n" +
-        ".....................^^^^^^^.....................\n" +
+        ".....................^^^^x^^.....................\n" +
         "T.....................^^^^^.....................T\n" +
         "........................=........................\n" +
         "T.......................=.......................T\n" +

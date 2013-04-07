@@ -16,6 +16,7 @@
  -->
 
 <dungeonMapData name="Another Dimension" type="NON_EUCLIDEAN">
+    <fovAlgorithm>SIMPLE_RADIUS</fovAlgorithm>
     <foreground>0x808080</foreground>
     <nonEuclideanParameters>
         <minRooms>45</minRooms>
@@ -23,7 +24,7 @@
         <rectangleRoomFreq>300</rectangleRoomFreq>
         <hallwayFrequency>600</hallwayFrequency>
         <roundRoomFreq>100</roundRoomFreq>
-        <hasStairs>false</hasStairs>
+        <hasStairs>true</hasStairs>
     </nonEuclideanParameters>
     <npcPopulationParameters>
         <populationCap>6</populationCap>

@@ -36,6 +36,9 @@
         </statBlock>
         <behaviors>
             <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+            <behavior type="EQUIPMENT_USER" min="0" max="90" base="0" multiplier="0"/>
+            <behavior type="RANGED" min="0" max="100" base="0" multiplier="100"/>
+            <behavior type="MELEE" min="0" max="80" base="0" multiplier="100"/>
         </behaviors>
         <messages>
             <message>I'd be careful if I were you. There are monsters everywhere!</message>
@@ -71,7 +74,7 @@
         </statBlock>
         <startingPosition row="2" col="23"/>
         <behaviors>
-            <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+            <behavior type="IDLE" min="1" max="1" base="1" multiplier="0"/>
         </behaviors>
         <messages>
             <message>I believe a portal to another world has opened here.</message>
@@ -99,6 +102,7 @@
         </statBlock>
         <behaviors>
             <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+            <behavior type="COWARDLY" min="0" max="100" base="10" multiplier="1"/>
         </behaviors>
         <messages>
             <message>What a scoop! This is the story of the century.</message>
@@ -131,6 +135,9 @@
         </statBlock>
         <behaviors>
             <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+            <behavior type="EQUIPMENT_USER" min="0" max="90" base="0" multiplier="0"/>
+            <behavior type="RANGED" min="0" max="100" base="0" multiplier="100"/>
+            <behavior type="MELEE" min="0" max="80" base="0" multiplier="100"/>
         </behaviors>
         <messages>
             <message>Keep calm in front of the civilians.</message>
@@ -167,6 +174,7 @@
         </statBlock>
         <behaviors>
             <behavior type="WANDERING" min="1" max="1" base="1" multiplier="0"/>
+            <behavior type="COWARDLY" min="0" max="100" base="10" multiplier="1"/>
         </behaviors>
         <messages>
             <message>Hi.</message>

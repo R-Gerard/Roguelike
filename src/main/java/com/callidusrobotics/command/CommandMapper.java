@@ -61,6 +61,7 @@ public final class CommandMapper {
         Command.UNKNOWN,
         Command.INVENTORY,
         Command.SELECT,
+        Command.EXAMINE,
         Command.TOGGLE,
         Command.HELP,
         Command.QUIT
@@ -96,10 +97,10 @@ public final class CommandMapper {
     setCommand("PERIOD", Command.REST);
     setCommand("5", Command.REST);
 
-    //setCommand("LESS", Command.ASCEND);
-    //setCommand("SHIFT COMMA", Command.ASCEND);
-    //setCommand("GREATER", Command.DESCEND);
-    //setCommand("SHIFT PERIOD", Command.DESCEND);
+    setCommand("LESS", Command.ASCEND);
+    setCommand("SHIFT COMMA", Command.ASCEND);
+    setCommand("GREATER", Command.DESCEND);
+    setCommand("SHIFT PERIOD", Command.DESCEND);
 
     setCommand("F", Command.FIRE);
     setCommand("G", Command.GRAB_PROMPT);
@@ -113,6 +114,7 @@ public final class CommandMapper {
     setCommand("SHIFT R", Command.UNLOAD);
     setCommand("L", Command.RELOAD);
 
+    setCommand("X", Command.EXAMINE);
     setCommand("C", Command.CHAT);
 
     setCommand("ENTER", Command.SELECT);

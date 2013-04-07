@@ -15,30 +15,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.callidusrobotics.command;
+package com.callidusrobotics.locale;
 
 /**
- * Enumeration of in-game commands that can be performed by
- * <code>AbstractActor</code> objects (including the
- * <code>PlayerCharacter</code>).
+ * An enumerated type of field-of-view (FOV) algorithms.
  *
  * @author Rusty
  * @since 0.0.1
+ * @see Illuminates
  */
-public enum Command {
-  NORTH, SOUTH, EAST, WEST, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST,
-  ASCEND, DESCEND,
-  REST,
-  EXAMINE,
-  CHAT,
-  ATTACKMELEE, ATTACKRANGED, FIRE,
-  GRAB_PROMPT, GRABALL, DROP_PROMPT, DROPALL,
-  INVENTORY,
-  EQUIP, UNEQUIP,
-  USE,
-  RELOAD, UNLOAD,
-  SELECT, TOGGLE, ESCAPE,
-  HELP,
-  QUIT,
-  UNKNOWN
+enum FieldOfViewType {
+  /**
+   * No field-of-view algorithm is used; every tile is illuminated.
+   */
+  ALL,
+
+  /**
+   * Algorithm used by Rogue; the room the PlayerCharacter currently occupies is
+   * illuminated.
+   */
+  CLASSIC,
+
+  /**
+   * Every tile inside of a circle centered on the PlayerCharacter is
+   * illuminated.
+   */
+  SIMPLE_RADIUS,
+
+  /**
+   * Every point that is within line-of-sight of the PlayerCharacter is
+   * illuminated.
+   */
+  SHADOWCASTING
 }

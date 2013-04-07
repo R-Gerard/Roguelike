@@ -19,13 +19,12 @@
     <isDangerous>false</isDangerous>
     <tiles>
         <tile id="N">
-            <character> </character>
-            <foreground>0x000000</foreground>
+            <character>0</character>
+            <foreground>0x0000FF</foreground>
             <background>0x000000</background>
             <barrier>false</barrier>
-            <alwaysOnTop>false</alwaysOnTop>
-            <name>Exit</name>
-            <description>Exit to the north.</description>
+            <name>Portal</name>
+            <description>A swirling portal of blue mist.</description>
         </tile>
         <tile id="#">
             <character>&#9608;</character>
@@ -67,7 +66,7 @@
             <description>Patch of green grass.</description>
         </tile>
         <tile id="T">
-            <character>T</character>
+            <character>&#9824;</character>
             <foreground>0x228B22</foreground>
             <barrier>true</barrier>
             <name>Tree</name>
@@ -80,12 +79,23 @@
             <name>Path</name>
             <description>Gravel path.</description>
         </tile>
+        <tile id="x">
+            <character>&#9746;</character>
+            <foreground>0x8B4513</foreground>
+            <barrier>false</barrier>
+            <alwaysOnTop>true</alwaysOnTop>
+            <name>Chest</name>
+            <description>A large wooden box.</description>
+            <fixedItems>
+                <item id="healing_stone" fixedQuantity="1"/>
+            </fixedItems>
+        </tile>
     </tiles>
     <width>49</width>
     <map>
         ########################N########################
         T....................^##^##^....................T
-        .....................^^^^^^^.....................
+        .....................^^^^x^^.....................
         T.....................^^^^^.....................T
         ........................=........................
         T.......................=.......................T

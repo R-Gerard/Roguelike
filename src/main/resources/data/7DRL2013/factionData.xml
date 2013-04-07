@@ -27,5 +27,15 @@
             </neutrals>
             <allies/>
         </faction>
+        <faction id="townsfolk">
+            <enemies>
+                <faction>monsters</faction>
+            </enemies>
+        </faction>
+        <faction id="deputies">
+            <enemies>
+                <faction>monsters</faction>
+            </enemies>
+        </faction>
     </factions>
 </actorFactionData>

@@ -133,6 +133,8 @@
         1 2 3     &#8601; &#8595; &#8600;
 
         COMMANDS
+        &lt; Ascend stairs
+        &gt; Descend stairs
         g Grab an item
         G Grab an item quickly
         d Drop an item
@@ -144,6 +146,7 @@
         R Remove ammunition from an item in your inventory
         l Load ammunition into a weapon
         f Fire a projectile weapon
+        x Examine something
         c Chat with an adjacent NPC
         ? Display this screen
         Q Quit the game
@@ -174,6 +177,6 @@
     <boxBackground>0x000000</boxBackground>
     <fontForeground>0xE6E6FA</fontForeground>
     <fontBackground>0x000000</fontBackground>
-    <selectForeground>0x000000</selectForeground>
-    <selectBackground>0xE6E6FA</selectBackground>
+    <selectForeground>0xDC143C</selectForeground>
+    <selectBackground>0x000000</selectBackground>
 </gameData>

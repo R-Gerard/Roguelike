@@ -17,28 +17,22 @@
 
 package com.callidusrobotics.command;
 
-/**
- * Enumeration of in-game commands that can be performed by
- * <code>AbstractActor</code> objects (including the
- * <code>PlayerCharacter</code>).
- *
- * @author Rusty
- * @since 0.0.1
- */
-public enum Command {
-  NORTH, SOUTH, EAST, WEST, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST,
-  ASCEND, DESCEND,
-  REST,
-  EXAMINE,
-  CHAT,
-  ATTACKMELEE, ATTACKRANGED, FIRE,
-  GRAB_PROMPT, GRABALL, DROP_PROMPT, DROPALL,
-  INVENTORY,
-  EQUIP, UNEQUIP,
-  USE,
-  RELOAD, UNLOAD,
-  SELECT, TOGGLE, ESCAPE,
-  HELP,
-  QUIT,
-  UNKNOWN
+import com.callidusrobotics.Message;
+import com.callidusrobotics.locale.DungeonLevel;
+import com.callidusrobotics.swing.ConsoleFactory;
+
+@Performs(Command.EXAMINE)
+class PerformExamine extends AbstractCommandPerformer {
+
+  @Override
+  public Message performDelegate(final Command command) {
+    final DungeonLevel currentLevel = gameMediator.getCurrentLevel();
+
+    if (player.isInTargetingMode()) {
+      player.getReticle().hide();
+      player.getReticle().draw(ConsoleFactory.getInstance());
+    }
+
+    return player.createReticle(currentLevel, command);
+  }
 }

@@ -83,6 +83,7 @@
         </statBlock>
         <behaviors>
             <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+            <behavior type="COWARDLY" min="10" max="100" base="0" multiplier="1"/>
         </behaviors>
         <randomItems>
             <item id="powder_of_ibn_ghazi" fixedQuantity="2" randomProbability="10" randomQuantity="3"/>
@@ -116,7 +117,7 @@
             <foreground>0x8B4513</foreground>
             <name display="Rat Thing"/>
             <description>A creature no bigger than a house cat with the face of a man and the body of a rat.</description>
-            <size>MEDIUM</size>
+            <size>SMALL</size>
         </displayInfo>
         <faction>monsters</faction>
         <statBlock>
@@ -130,6 +131,8 @@
         </statBlock>
         <behaviors>
             <behavior type="MELEE" min="0" max="100" base="0" multiplier="1"/>
+            <behavior type="GREEDY" min="0" max="200" base="0" multiplier="10"/>
+            <behavior type="COWARDLY" min="0" max="100" base="0" multiplier="2"/>
         </behaviors>
         <randomItems>
             <item id="pallid_mask" fixedQuantity="1" randomProbability="1"/>
@@ -186,6 +189,7 @@
         </statBlock>
         <behaviors>
             <behavior type="MELEE" min="0" max="90" base="0" multiplier="1"/>
+            <behavior type="ITEM_USER" min="0" max="100" base="0" multiplier="0"/>
         </behaviors>
         <fixedItems>
             <item id="necronomicon" fixedQuantity="1"/>
@@ -212,6 +216,8 @@
         </statBlock>
         <behaviors>
             <behavior type="MELEE" min="0" max="90" base="0" multiplier="1"/>
+            <behavior type="ITEM_USER" min="0" max="100" base="0" multiplier="0"/>
+            <behavior type="COWARDLY" min="10" max="100" base="0" multiplier="1"/>
         </behaviors>
         <randomItems>
             <item id="healing_stone" fixedQuantity="2" randomProbability="25" randomQuantity="3"/>

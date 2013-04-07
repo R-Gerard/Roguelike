@@ -29,6 +29,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.StringUtils;
+
 import com.callidusrobotics.ConsoleColleague;
 import com.callidusrobotics.locale.DungeonLevel.Room;
 import com.callidusrobotics.object.actor.NonPlayerCharacterFactory;
@@ -45,6 +47,7 @@ import com.callidusrobotics.util.XmlMarshaller;
 public final class AreaMapData {
   @XmlAttribute(required = true) String name;
   @XmlElement(required = true) boolean isDangerous = false;
+  @XmlElement(required = false) String fovAlgorithm;
   @XmlElementWrapper(required = true) @XmlElement(name = "tile") List<TileData> tiles;
   @XmlElement(required = true) int width;
   @XmlElement(required = true) String map;
@@ -74,6 +77,7 @@ public final class AreaMapData {
     final DungeonLevel dungeonLevel = new DungeonLevel(map.length() / width, width, name, depth, Tile.makeDefaultInvisibleBarrier());
     dungeonLevel.getRooms().add(new Room(RoomType.RECTANGLE, dungeonLevel.getPosition(), dungeonLevel.getHeight(), dungeonLevel.getWidth()));
     dungeonLevel.setIsDangerous(isDangerous);
+    dungeonLevel.setDungeonMapData(getDungeonMapData());
     final Map<Character, TileData> tileMap = new HashMap<Character, TileData>();
 
     for (final TileData tile : tiles) {
@@ -122,6 +126,34 @@ public final class AreaMapData {
     dungeonLevel.setPosition(ConsoleColleague.getPosition(dungeonLevel));
 
     return dungeonLevel;
+  }
+
+  /**
+   * Generates a dummy DungeonMapData wrapper around the fovAlgorithm.
+   *
+   * @return The DungeonMapData, nullable
+   * @see #getFovAlgorithm()
+   */
+  public DungeonMapData getDungeonMapData() {
+    if (StringUtils.isBlank(fovAlgorithm)) {
+      return null;
+    }
+
+    // Rather than store a DungeonMapData object in the XML definition, the only thing we should need is a fovAlgorithm.
+    // (If this AreaMapData is used as a special room inside of a dungeon it will inherit the parent dungeon's DungeonMapData.)
+    final DungeonMapData result = new DungeonMapData();
+    result.name = name;
+    result.fovAlgorithm = getFovAlgorithm().toString();
+
+    return result;
+  }
+
+  public FieldOfViewType getFovAlgorithm() {
+    if (StringUtils.isBlank(fovAlgorithm)) {
+      return FieldOfViewType.ALL;
+    }
+
+    return FieldOfViewType.valueOf(fovAlgorithm);
   }
 
   public List<String> getNpcs() {

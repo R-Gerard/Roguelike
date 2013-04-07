@@ -48,7 +48,7 @@ public class TileDataUtil {
   }
 
   public static TileData makeTree(final char identifier) {
-    return new TileData(identifier, 'T', TrueColor.FOREST_GREEN, null, true, null, "Tree", "A tree.");
+    return new TileData(identifier, Unicode.SYMBOL_CARDS_SPADE_SOLID, TrueColor.FOREST_GREEN, null, true, null, "Tree", "A tree.");
   }
 
   public static TileData makePath(final char identifier) {
@@ -65,6 +65,10 @@ public class TileDataUtil {
     tileData.randomItems = randomItems;
 
     return tileData;
+  }
+
+  public static TileData makePortal(final char identifier) {
+    return new TileData(identifier, '0', TrueColor.BLUE, TrueColor.BLACK, false, null, "Portal", "A swirling portal of blue mist.");
   }
 
   public static TileData makeFountain(final char identifier) {

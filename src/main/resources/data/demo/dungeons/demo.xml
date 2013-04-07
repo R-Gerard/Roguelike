@@ -16,6 +16,7 @@
  -->
 
 <dungeonMapData name="Demo Dungeon" type="NON_EUCLIDEAN">
+    <fovAlgorithm>ALL</fovAlgorithm>
     <foreground>0x808080</foreground>
     <nonEuclideanParameters>
         <minRooms>10</minRooms>

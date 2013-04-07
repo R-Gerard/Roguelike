@@ -25,6 +25,7 @@ import com.callidusrobotics.object.ItemUtil;
 import com.callidusrobotics.object.GameObjectItemData;
 import com.callidusrobotics.object.Size;
 import com.callidusrobotics.object.actor.NonPlayerCharacterData.GameDisplayInfo;
+import com.callidusrobotics.object.actor.NonPlayerCharacterData.WoundDescriptions;
 import com.callidusrobotics.util.TrueColor;
 
 public class ActorUtil {
@@ -42,7 +43,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData makeDemoTownsfolk() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0),
+        makeAiStrategy(Behavior.COWARDLY, 0, 100, 10, 1));
 
     final List<String> messages = Arrays.asList(
         "Hi",
@@ -71,7 +73,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData makeDemoMonster() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1));
+        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1),
+        makeAiStrategy(Behavior.GREEDY, 0, 100, 0, 2));
 
     final List<GameObjectItemData> randomItems = Arrays.asList(new GameObjectItemData(ItemUtil.makeHealingStone().getId(), 1, 10, null));
 
@@ -89,7 +92,10 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlSheriff() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0),
+        makeAiStrategy(Behavior.EQUIPMENT_USER, 0, 90, 0, 0),
+        makeAiStrategy(Behavior.RANGED, 0, 100, 0, 100),
+        makeAiStrategy(Behavior.MELEE, 0, 80, 0, 100));
 
     final List<String> messages = Arrays.asList(
         "Keep calm in front of the civilians.",
@@ -121,7 +127,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlReporter() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0),
+        makeAiStrategy(Behavior.COWARDLY, 0, 100, 10, 1));
 
     final List<String> messages = Arrays.asList(
         "What a scoop! This is the story of the century.",
@@ -148,7 +155,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlStudent() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0),
+        makeAiStrategy(Behavior.COWARDLY, 0, 100, 10, 1));
 
     final List<String> messages = Arrays.asList(
         "Hi.",
@@ -172,7 +180,7 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlProfessorAtwood() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.IDLE, 1, 1, 1, 0));
 
     final List<String> messages = Arrays.asList(
         "I believe a portal to another world has opened here.",
@@ -194,7 +202,10 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlDeputy() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0));
+        makeAiStrategy(Behavior.WANDERING, 1, 1, 1, 0),
+        makeAiStrategy(Behavior.EQUIPMENT_USER, 0, 90, 0, 0),
+        makeAiStrategy(Behavior.RANGED, 0, 100, 0, 100),
+        makeAiStrategy(Behavior.MELEE, 0, 80, 0, 100));
 
     final List<String> messages = Arrays.asList(
         "I'd be careful if I were you. There are monsters everywhere!",
@@ -225,9 +236,11 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlRatThing() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1));
+        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1),
+        makeAiStrategy(Behavior.GREEDY, 0, 200, 0, 10),
+        makeAiStrategy(Behavior.COWARDLY, 0, 100, 0, 2));
 
-    final GameDisplayInfo displayInfo = new GameDisplayInfo('r', TrueColor.SADDLE_BROWN, "Rat Thing", false, "A creature no bigger than a house cat with the face of a man and the body of a rat.", Size.MEDIUM, null);
+    final GameDisplayInfo displayInfo = new GameDisplayInfo('r', TrueColor.SADDLE_BROWN, "Rat Thing", false, "A creature no bigger than a house cat with the face of a man and the body of a rat.", Size.SMALL, null);
 
     final NonPlayerCharacterData npcData = new NonPlayerCharacterData(
         "rat_thing", displayInfo, _7DRL_MONSTERS_FACTION,
@@ -273,7 +286,9 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlYithian() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.MELEE, 0, 90, 0, 1));
+        makeAiStrategy(Behavior.MELEE, 0, 90, 0, 1),
+        makeAiStrategy(Behavior.ITEM_USER, 0, 100, 0, 0),
+        makeAiStrategy(Behavior.COWARDLY, 10, 100, 0, 1));
 
     final List<GameObjectItemData> randomItems = Arrays.asList(
         new GameObjectItemData(ItemUtil.makeHealingStone().getId(), 2, 25, 3));
@@ -321,7 +336,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlMiGo() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1));
+        makeAiStrategy(Behavior.MELEE, 0, 100, 0, 1),
+        makeAiStrategy(Behavior.COWARDLY, 10, 100, 0, 1));
 
     final List<GameObjectItemData> randomItems = Arrays.asList(
         new GameObjectItemData(ItemUtil.makePowderOfIbnGhazi().getId(), 2, 10, 3));
@@ -354,7 +370,8 @@ public class ActorUtil {
 
   public static NonPlayerCharacterData make7drlWarlock() {
     final List<AiStrategy> aiStrategies = Arrays.asList(
-        makeAiStrategy(Behavior.MELEE, 0, 90, 0, 1));
+        makeAiStrategy(Behavior.MELEE, 0, 90, 0, 1),
+        makeAiStrategy(Behavior.ITEM_USER, 0, 100, 0, 0));
 
     final List<GameObjectItemData> fixedItems = Arrays.asList(
         new GameObjectItemData(ItemUtil.makeNecronomicon().getId(), 1, null, null),
@@ -368,6 +385,22 @@ public class ActorUtil {
         null, null, aiStrategies);
 
     npcData.setFixedItems(fixedItems);
+
+    return npcData;
+  }
+
+  public static NonPlayerCharacterData makeSuitOfArmor() {
+    final List<AiStrategy> aiStrategies = Arrays.asList(
+        makeAiStrategy(Behavior.IDLE, 1, 1, 0, 0));
+
+    final WoundDescriptions woundDescriptions = new WoundDescriptions("", "", "", "", "");
+
+    final GameDisplayInfo displayInfo = new GameDisplayInfo('&', TrueColor.SILVER, "Suit of Armor", false, "A suit of armor.", Size.MEDIUM, woundDescriptions);
+
+    final NonPlayerCharacterData npcData = new NonPlayerCharacterData(
+        "suit_of_armor", displayInfo, "unique_faction_0001",
+        new StatBlock(1, 1, 0, 0, 0, 0, 1),
+        new Coordinate(10, 10), false, aiStrategies);
 
     return npcData;
   }

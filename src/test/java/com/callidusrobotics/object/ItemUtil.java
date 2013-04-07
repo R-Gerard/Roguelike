@@ -44,7 +44,7 @@ public class ItemUtil {
     final int baseDamage = 2;
     return new ItemData("pocket_knife",
         '(', TrueColor.SILVER,
-        new InventoriableData("Pocket Knife", "A small knife.", 1, 200),
+        new InventoriableData("Pocket Knife", "A small knife.\n\nBase damage: " + baseDamage, 1, 200),
         new UseableData(false, false, -1, null, "Ouch! The blade is sharp.", null, null),
         new EquipableData(0, baseDamage, null, Arrays.asList(EquipmentSlot.WEAPON)));
   }
@@ -54,7 +54,7 @@ public class ItemUtil {
     final int baseDamage = 20;
     return new ItemData("service_revolver",
         '}', TrueColor.SILVER,
-        new InventoriableData("Service Revolver", "Smith & Wesson model 1899 Military & Police revolver.\n\nCaliber: .38 Special", 1, 1000),
+        new InventoriableData("Service Revolver", "Smith & Wesson model 1899 Military & Police revolver.\n\nCaliber: .38 Special\nRange: " + range + "\nBase damage: " + baseDamage, 1, 1000),
         new UseableData(false, true, 6, 6, "BANG!", "38_special_ammo", null),
         new EquipableData(range, baseDamage, null, Arrays.asList(EquipmentSlot.WEAPON)));
   }
@@ -62,7 +62,7 @@ public class ItemUtil {
   public static ItemData make38Ammo() {
     return new ItemData("38_special_ammo",
         '/', TrueColor.GOLD,
-        new InventoriableData(".38 Special Cartridge", "A low velocity, medium caliber bullet.", -1, 5),
+        new InventoriableData(".38 Special Cartridge", "A low velocity, medium caliber bullet.", 50, 5),
         new UseableData(false, false, -1, null, "Try loading this in a firearm.", null, null),
         null);
   }
@@ -118,7 +118,7 @@ public class ItemUtil {
     final int baseDamage = 10;
     return new ItemData("cavalry_saber",
         '(', TrueColor.SILVER,
-        new InventoriableData("Cavalry Saber", "Model 1860 Light Cavalry Saber.", 1, 1000),
+        new InventoriableData("Cavalry Saber", "Model 1860 Light Cavalry Saber.\n\nBase damage: " + baseDamage, 1, 1000),
         new UseableData(false, false, -1, null, "You rattle the saber in a flagrant display of power.", null, null),
         new EquipableData(0, baseDamage, null, Arrays.asList(EquipmentSlot.WEAPON)));
   }
@@ -128,7 +128,7 @@ public class ItemUtil {
     final int baseDamage = 70;
     return new ItemData("colt_peacemaker",
         '}', TrueColor.SILVER,
-        new InventoriableData("Colt Peacemaker", "Colt model 1873 Single Action Army revolver.\n\nCaliber: .45 Colt", 1, 2500),
+        new InventoriableData("Colt Peacemaker", "Colt model 1873 Single Action Army revolver.\n\nCaliber: .45 Colt\nRange: " + range + "\nBase damage: " + baseDamage, 1, 2500),
         new UseableData(false, true, 6, 1, "KABOOM!", "45_colt_ammo", null),
         new EquipableData(range, baseDamage, null, Arrays.asList(EquipmentSlot.WEAPON)));
   }
@@ -136,7 +136,7 @@ public class ItemUtil {
   public static ItemData make45ColtAmmo() {
     return new ItemData("45_colt_ammo",
         '/', TrueColor.GOLD,
-        new InventoriableData(".45 Colt Cartridge", "A low velocity, heavy caliber bullet.", -1, 25),
+        new InventoriableData(".45 Colt Cartridge", "A low velocity, heavy caliber bullet.", 50, 25),
         new UseableData(false, false, -1, null, "Try loading this in a firearm.", null, null),
         null);
   }

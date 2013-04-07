@@ -38,6 +38,7 @@ public class Tile extends AbstractGameObject {
   public static final String FLOOR_NAME = "Floor";
   private static final String UNEXPLORED_MSG = "You can't see there.";
 
+  protected boolean visible = false, explored = false;
   protected boolean barrier;
   protected boolean alwaysOnTop;
   protected Direction exit = null;
@@ -85,7 +86,11 @@ public class Tile extends AbstractGameObject {
 
   @Override
   public String getDescription() {
-    if (inventory.isEmpty() || alwaysOnTop) {
+    if (!visible && !explored) {
+      return UNEXPLORED_MSG;
+    }
+
+    if (inventory.isEmpty() || alwaysOnTop || !visible) {
       return super.getDescription();
     }
 
@@ -114,6 +119,16 @@ public class Tile extends AbstractGameObject {
 
   @Override
   public void draw(final Console console) {
+    if (!explored) {
+      console.print(getRow(), getCol(), getUnexploredGraphic());
+      return;
+    }
+
+    if (!visible) {
+      console.print(getRow(), getCol(), getOutOfSightGraphic());
+      return;
+    }
+
     // Draw the tile
     console.print(getRow(), getCol(), consoleGraphic);
 
@@ -159,6 +174,35 @@ public class Tile extends AbstractGameObject {
     }
 
     return outOfSightGraphic;
+  }
+
+  /**
+   * Visibility accessor.
+   * <p>
+   * Visibility is in reference to the PlayerCharacter. Does not accommodate
+   * field-of-view in the general case.
+   *
+   * @return The visibility of this to the PlayerCharacter
+   */
+  public boolean isVisible() {
+    return visible;
+  }
+
+  /**
+   * Visibility mutator.
+   *
+   * @param visible If true, the PlayerCharacter can see this
+   */
+  public void setVisible(final boolean visible) {
+    this.visible = visible;
+  }
+
+  public boolean isExplored() {
+    return explored;
+  }
+
+  public void setExplored(final boolean explored) {
+    this.explored = explored;
   }
 
   public boolean isBarrier() {

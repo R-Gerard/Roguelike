@@ -120,6 +120,12 @@ public class PlayerCharacter extends AbstractActor {
   }
 
   public Message createReticle(final DungeonLevel currentLevel, final Command command) {
+    if (command == Command.EXAMINE) {
+      walkMode = false;
+      reticle = new SearchReticle(currentLevel, position);
+      return new Message(Command.UNKNOWN, null, null, null, null);
+    }
+
     final Item weapon = equipment.get(EquipmentSlot.WEAPON);
     final int weaponRange = weapon == null ? -1 : weapon.getRange();
     if (weaponRange <= 0) {

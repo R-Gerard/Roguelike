@@ -28,8 +28,14 @@ import com.callidusrobotics.util.Identifier;
  * @since 0.0.1
  */
 public enum Behavior implements Named {
+  EQUIPMENT_USER,
+  ITEM_USER,
   MELEE,
-  WANDERING;
+  RANGED,
+  WANDERING,
+  COWARDLY,
+  GREEDY,
+  IDLE;
 
   @Override
   public String getId() {
@@ -43,6 +49,10 @@ public enum Behavior implements Named {
 
   @Override
   public String getDescription() {
+    if (this == COWARDLY) {
+      return "afraid";
+    }
+
     return "";
   }
 }

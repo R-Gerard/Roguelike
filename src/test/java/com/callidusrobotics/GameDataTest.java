@@ -66,8 +66,8 @@ public class GameDataTest {
     data.boxBackground = TrueColor.BLACK.toString();
     data.fontForeground = TrueColor.LAVENDER.toString();
     data.fontBackground = TrueColor.BLACK.toString();
-    data.selectForeground = TrueColor.BLACK.toString();
-    data.selectBackground = TrueColor.LAVENDER.toString();
+    data.selectForeground = TrueColor.CRIMSON.toString();
+    data.selectBackground = TrueColor.BLACK.toString();
   }
 
   private String makeDemoLoadingScreen() {
@@ -107,8 +107,8 @@ public class GameDataTest {
         "1 2 3     " + Unicode.ARROW_SOUTHWEST + " " + Unicode.ARROW_SOUTH + " " + Unicode.ARROW_SOUTHEAST + "\n\n" +
 
         "COMMANDS\n" +
-        //"< Ascend stairs\n" +
-        //"> Descend stairs\n" +
+        "< Ascend stairs\n" +
+        "> Descend stairs\n" +
         "g Grab an item\n" +
         "G Grab an item quickly\n" +
         "d Drop an item\n" +
@@ -120,6 +120,7 @@ public class GameDataTest {
         "R Remove ammunition from an item in your inventory\n" +
         "l Load ammunition into a weapon\n" +
         "f Fire a projectile weapon\n" +
+        "x Examine something\n" +
         "c Chat with an adjacent NPC\n" +
         "? Display this screen\n" +
         "Q Quit the game\n\n" +
@@ -162,8 +163,8 @@ public class GameDataTest {
     data.boxBackground = TrueColor.BLACK.toString();
     data.fontForeground = TrueColor.LAVENDER.toString();
     data.fontBackground = TrueColor.BLACK.toString();
-    data.selectForeground = TrueColor.BLACK.toString();
-    data.selectBackground = TrueColor.LAVENDER.toString();
+    data.selectForeground = TrueColor.CRIMSON.toString();
+    data.selectBackground = TrueColor.BLACK.toString();
   }
 
   private String make7drlLoadingScreen() {

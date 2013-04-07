@@ -25,6 +25,7 @@ import com.callidusrobotics.Message;
 import com.callidusrobotics.command.Command;
 import com.callidusrobotics.locale.Coordinate;
 import com.callidusrobotics.locale.DungeonLevel;
+import com.callidusrobotics.locale.Tile;
 import com.callidusrobotics.object.Size;
 import com.callidusrobotics.swing.Console;
 import com.callidusrobotics.swing.MutableConsoleGraphic;
@@ -162,6 +163,10 @@ public class TargetingReticle extends AbstractReticle {
   }
 
   private MutableConsoleGraphic getConsoleGraphic(final Coordinate point) {
+    if (!dungeonLevel.getTileRelative(point).isVisible()) {
+      return Tile.makeDefaultInvisibleBarrier().getConsoleGraphic();
+    }
+
     final AbstractActor actor = dungeonLevel.getAbstractActorAtPosition(point);
     if (actor == null || actor.getCurrentStatBlock().getCurrentHp() < 1) {
       return dungeonLevel.getTileRelative(point).getConsoleGraphic();
@@ -171,11 +176,23 @@ public class TargetingReticle extends AbstractReticle {
   }
 
   protected int getNumVisibleTargets(final DungeonLevel currentLevel) {
-    return currentLevel.getNonPlayerCharacters().size();
+    int count = 0;
+    for (final AbstractActor actor : currentLevel.getNonPlayerCharacters()) {
+      if (currentLevel.getTileRelative(actor.getPosition()).isVisible()) {
+        count++;
+      }
+    }
+
+    return count;
   }
 
   @Override
   protected boolean isBarrier(final DungeonLevel currentLevel, final Coordinate position) {
-    return !currentLevel.checkCoordinatesRelative(position);
+    if (!currentLevel.checkCoordinatesRelative(position)) {
+      return true;
+    }
+
+    // We want the reticle to be able to step over visible barriers
+    return !currentLevel.getTileRelative(position).isVisible();
   }
 }

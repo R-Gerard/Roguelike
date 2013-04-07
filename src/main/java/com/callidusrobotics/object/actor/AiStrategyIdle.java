@@ -15,30 +15,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.callidusrobotics.command;
+package com.callidusrobotics.object.actor;
+
+import com.callidusrobotics.Message;
+import com.callidusrobotics.command.Command;
+import com.callidusrobotics.locale.DungeonLevel;
 
 /**
- * Enumeration of in-game commands that can be performed by
- * <code>AbstractActor</code> objects (including the
- * <code>PlayerCharacter</code>).
+ * Defines behavior for a NonPlayerCharacter that does nothing.
  *
  * @author Rusty
- * @since 0.0.1
+ * @since 0.0.3
  */
-public enum Command {
-  NORTH, SOUTH, EAST, WEST, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST,
-  ASCEND, DESCEND,
-  REST,
-  EXAMINE,
-  CHAT,
-  ATTACKMELEE, ATTACKRANGED, FIRE,
-  GRAB_PROMPT, GRABALL, DROP_PROMPT, DROPALL,
-  INVENTORY,
-  EQUIP, UNEQUIP,
-  USE,
-  RELOAD, UNLOAD,
-  SELECT, TOGGLE, ESCAPE,
-  HELP,
-  QUIT,
-  UNKNOWN
+@Behaves(Behavior.IDLE)
+class AiStrategyIdle extends AbstractAiStrategy {
+
+  @Override
+  public Message updateStateDelegate(final ActorFactionData factionData, final DungeonLevel currentLevel) {
+    return new Message(Command.REST, null, null, null, null);
+  }
+
+  @Override
+  protected int getAbsoluteWeight(final ActorFactionData factionData, final DungeonLevel currentLevel) {
+    return base;
+  }
 }

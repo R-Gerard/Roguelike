@@ -31,6 +31,13 @@ Here are a few tips on how to stay alive:
 
 # Version History
 
+## 0.0.3 (internal release)
+* Added an examine command to display in-game descriptions of NPCs and the environment.
+* Small items like bullets now have a maximum quantity per item slot.
+* NPCs can now attack each other.
+* Added new AI strategies for greedy and cowardly NPCs.
+* Added support for field-of-view algorithms.
+
 ## 0.0.2 (March 23, 2013)
 * JRE 7 is now required.
 * Minor bug fixes with items and equipment.

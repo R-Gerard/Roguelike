@@ -61,7 +61,7 @@ public class DungeonMapDataTest {
     final NonEuclideanParameters neParams = new NonEuclideanParameters(10, 20, 300, 600, 100, false);
     final NpcPopulationParameters spawnParams = new NpcPopulationParameters(6, 2, 5, 0, 2);
 
-    data = new DungeonMapData("Demo Dungeon", TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, null);
+    data = new DungeonMapData("Demo Dungeon", FieldOfViewType.SIMPLE_RADIUS, TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, null);
   }
 
   @Test
@@ -111,11 +111,11 @@ public class DungeonMapDataTest {
         level15,
         level20);
 
-    final NonEuclideanParameters neParams = new NonEuclideanParameters(45, 55, 300, 600, 100, false);
+    final NonEuclideanParameters neParams = new NonEuclideanParameters(45, 55, 300, 600, 100, true);
     final NpcPopulationParameters spawnParams = new NpcPopulationParameters(6, 2, 5, 0, 2);
 
     final List<String> specialRoomFiles = Arrays.asList("/data/7DRL2013/maps/warlockLair.xml");
 
-    data = new DungeonMapData("Another Dimension", TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, specialRoomFiles);
+    data = new DungeonMapData("Another Dimension", FieldOfViewType.SIMPLE_RADIUS, TrueColor.GRAY, DungeonType.NON_EUCLIDEAN, neParams, spawnParams, npcs, standardTiles, specialRoomFiles);
   }
 }

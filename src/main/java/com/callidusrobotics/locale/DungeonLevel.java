@@ -275,7 +275,8 @@ public class DungeonLevel implements ConsoleTextBox {
   public Map<Integer, List<AbstractActor>> getAbstractActorsRankedByDistance(final Coordinate position, final boolean mustBeVisible) {
     final Map<Integer, List<AbstractActor>> distanceMap = getNonPlayerCharactersRankedByDistance(position, mustBeVisible);
 
-    if (player != null) {
+    final boolean playerIsVisible = player == null ? false : getTileRelative(player.getPosition()).isVisible();
+    if (player != null && (playerIsVisible || !mustBeVisible)) {
       final int dist2 = player.getPosition().distance2(position);
       if (!distanceMap.containsKey(dist2)) {
         distanceMap.put(dist2, new LinkedList<AbstractActor>());
@@ -292,6 +293,11 @@ public class DungeonLevel implements ConsoleTextBox {
     final Map<Integer, List<AbstractActor>> distanceMap = new TreeMap<Integer, List<AbstractActor>>();
 
     for (final NonPlayerCharacter npc : npcs) {
+      final boolean npcIsVisible = getTileRelative(npc.getPosition()).isVisible();
+      if (!npcIsVisible && mustBeVisible) {
+        continue;
+      }
+
       final int dist2 = npc.getPosition().distance2(position);
       if (!distanceMap.containsKey(dist2)) {
         distanceMap.put(dist2, new LinkedList<AbstractActor>());
@@ -499,6 +505,31 @@ public class DungeonLevel implements ConsoleTextBox {
    */
   DungeonMapData getDungeonMapData() {
     return dungeonMapData;
+  }
+
+  /**
+   * The FoV strategy used to illuminate this level.
+   *
+   * @return The FieldOfViewStrategy, never null
+   */
+  public FieldOfViewStrategy getFovStrategy() {
+    if (dungeonMapData != null && player != null) {
+      return FieldOfViewFactory.makeFovStrategy(dungeonMapData.getFovAlgorithm());
+    }
+
+    return FieldOfViewFactory.makeFovStrategy(FieldOfViewType.ALL);
+  }
+
+  /**
+   * Illuminates each Tile according to the field-of-view algorithm specified by
+   * the DungeonMapData.
+   *
+   * @return List of coordinates that have changed illumination since the last
+   *         call to this, never null
+   * @see FieldOfViewFactory
+   */
+  public List<Coordinate> illuminate() {
+    return getFovStrategy().illuminate(player, this);
   }
 
   /**

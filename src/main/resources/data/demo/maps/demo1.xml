@@ -62,7 +62,7 @@
             <description>Patch of green grass.</description>
         </tile>
         <tile id="T">
-            <character>T</character>
+            <character>&#9824;</character>
             <foreground>0x228B22</foreground>
             <barrier>true</barrier>
             <name>Tree</name>

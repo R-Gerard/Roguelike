@@ -93,6 +93,7 @@ final class DungeonMapData {
 
     @XmlAttribute(required = true) String name;
     @XmlAttribute(required = true, name = "type") String dungeonType;
+    @XmlElement(required = true) String fovAlgorithm;
     @XmlElement(required = true) String foreground;
     @XmlElement(required = false) String background = null;
     @XmlElement(required = false, name = "nonEuclideanParameters") NonEuclideanParameters neParameters = null;
@@ -112,8 +113,9 @@ final class DungeonMapData {
 
     DungeonMapData() { /* Required by JAXB */ }
 
-    DungeonMapData(final String name, final TrueColor foreground, final DungeonType dungeonType, final NonEuclideanParameters subtypeParameters, final NpcPopulationParameters spawnParameters, final List<SpawnList> spawnLists, final List<TileData> tiles, final List<String> specialRoomFiles) {
+    DungeonMapData(final String name, final FieldOfViewType fovAlgorithm, final TrueColor foreground, final DungeonType dungeonType, final NonEuclideanParameters subtypeParameters, final NpcPopulationParameters spawnParameters, final List<SpawnList> spawnLists, final List<TileData> tiles, final List<String> specialRoomFiles) {
       this.name = name;
+      this.fovAlgorithm = fovAlgorithm.toString();
       this.foreground = foreground.toString();
 
       this.dungeonType = dungeonType.toString();
@@ -180,6 +182,14 @@ final class DungeonMapData {
       }
 
       return subtypeParameters.getMaxSize();
+    }
+
+    FieldOfViewType getFovAlgorithm() {
+      if (fovAlgorithm == null) {
+        return FieldOfViewType.ALL;
+      }
+
+      return FieldOfViewType.valueOf(fovAlgorithm);
     }
 
     TrueColor getForeground() {

@@ -20,7 +20,6 @@ package com.callidusrobotics.object.actor;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
 import com.callidusrobotics.Message;
 import com.callidusrobotics.command.Command;
 import com.callidusrobotics.locale.Coordinate;
@@ -74,7 +73,13 @@ abstract class AbstractAiStrategy implements AiStrategy {
   }
 
   protected Message filterMessage(final Message message, final ActorFactionData factionData, final DungeonLevel currentLevel) {
-    return message;
+    // Display the message to the player if and only if the Actor is visible to the player
+    if (currentLevel.getTileRelative(self.getPosition()).isVisible()) {
+      return message;
+    }
+
+    // Return the bare minimum information to the GameMediator
+    return new Message(message.getAction(), message.getTargets(), null, null, null);
   }
 
   protected abstract Message updateStateDelegate(ActorFactionData factionData, DungeonLevel currentLevel);
@@ -106,12 +111,16 @@ abstract class AbstractAiStrategy implements AiStrategy {
   }
 
   protected AbstractActor getNearestOpponent(final ActorFactionData factionData, final DungeonLevel currentLevel) {
+    //final Set<Coordinate> illuminatedPoints = currentLevel.getFovStrategy().getIlluminated(self, currentLevel);
     final Map<Integer, List<AbstractActor>> actors = currentLevel.getAbstractActorsRankedByDistance(self.getPosition(), false);
     actors.remove(0);
 
     for (final int distance : actors.keySet()) {
       final List<AbstractActor> actorList = actors.get(distance);
       for (final AbstractActor actor : actorList) {
+        // TODO: Make NPCs less aware and indicate to the player what their awareness level is
+        //final boolean awareOfActor = illuminatedPoints.contains(actor.getPosition()) || self.getKnownEntities().contains(actor);
+
         if (factionData.areEnemies(self.getFaction(), actor.getFaction())) {
           return actor;
         }

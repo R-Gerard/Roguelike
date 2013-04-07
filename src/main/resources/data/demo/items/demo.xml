@@ -53,7 +53,9 @@
         <color>0xC0C0C0</color>
         <inventoriableData>
             <name>Pocket Knife</name>
-            <description>A small knife.</description>
+            <description>A small knife.
+
+Base damage: 2</description>
             <maxPerSlot>1</maxPerSlot>
             <value>200</value>
         </inventoriableData>
@@ -78,7 +80,9 @@
             <name>Service Revolver</name>
             <description>Smith &amp; Wesson model 1899 Military &amp; Police revolver.
 
-Caliber: .38 Special</description>
+Caliber: .38 Special
+Range: 8
+Base damage: 20</description>
             <maxPerSlot>1</maxPerSlot>
             <value>1000</value>
         </inventoriableData>
@@ -104,7 +108,7 @@ Caliber: .38 Special</description>
         <inventoriableData>
             <name>.38 Special Cartridge</name>
             <description>A low velocity, medium caliber bullet.</description>
-            <maxPerSlot>-1</maxPerSlot>
+            <maxPerSlot>50</maxPerSlot>
             <value>5</value>
         </inventoriableData>
         <useableData>

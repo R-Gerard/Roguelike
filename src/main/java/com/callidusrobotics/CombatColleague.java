@@ -45,13 +45,17 @@ public final class CombatColleague {
     final int toHitRoll = 1 + RANDOM.nextInt(20);
     final StatBlock attackerStats = attacker.getCurrentStatBlock();
     final StatBlock defenderStats = defender.getCurrentStatBlock();
-    final String attackerName = StringUtils.capitalize(attacker.getName());
-    final String defenderName = defender.getName();
+    final boolean visible = currentLevel.getTileRelative(attacker.getPosition()).isVisible();
+    final boolean otherVisible = currentLevel.getTileRelative(defender.getPosition()).isVisible();
+    final String attackerName = StringUtils.capitalize(getNameOrSomething(attacker, currentLevel));
+    final String defenderName = getNameOrSomething(defender, currentLevel);
     Message message = new Message(command, Arrays.asList(defender.getPosition()), attackerName + " misses " + defenderName + ".", attacker.getForeground(), TrueColor.BLACK);
 
     final int damageMean = getDamage(attacker, command);
     final int damageStdev = 1 + damageMean / 4;
     final int damageRoll = (int) (RANDOM.nextGaussian() * damageStdev) + damageMean;
+
+    defender.setKnownEntity(attacker);
 
     if (toHitRoll == 20) {
       // Automatic hit
@@ -74,7 +78,19 @@ public final class CombatColleague {
       weapon.fire(attacker, currentLevel);
     }
 
-    return message;
+    if (visible || otherVisible) {
+      return message;
+    }
+
+    return new Message(command, Arrays.asList(defender.getPosition()), "You hear the sounds of a fight.", TrueColor.GRAY, null);
+  }
+
+  private static String getNameOrSomething(final AbstractActor actor, final DungeonLevel currentLevel) {
+    if (currentLevel.getTileRelative(actor.getPosition()).isVisible()) {
+      return actor.getNameThirdPerson();
+    }
+
+    return "something";
   }
 
   private static int getDamage(final AbstractActor actor, final Command command) {

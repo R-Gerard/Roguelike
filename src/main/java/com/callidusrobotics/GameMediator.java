@@ -35,6 +35,7 @@ import com.callidusrobotics.locale.AreaMapData;
 import com.callidusrobotics.locale.Coordinate;
 import com.callidusrobotics.locale.Direction;
 import com.callidusrobotics.locale.DungeonLevel;
+import com.callidusrobotics.locale.FieldOfViewFactory;
 import com.callidusrobotics.locale.Tile;
 import com.callidusrobotics.object.ItemFactory;
 import com.callidusrobotics.object.actor.AbstractActor;
@@ -44,7 +45,6 @@ import com.callidusrobotics.object.actor.NonPlayerCharacterFactory;
 import com.callidusrobotics.object.actor.PlayerCharacter;
 import com.callidusrobotics.object.actor.PlayerCharacterData;
 import com.callidusrobotics.swing.Console;
-import com.callidusrobotics.swing.ConsoleFactory;
 import com.callidusrobotics.util.TrueColor;
 import com.callidusrobotics.util.XmlMarshaller;
 
@@ -59,6 +59,7 @@ import com.callidusrobotics.util.XmlMarshaller;
  */
 public class GameMediator {
   private boolean gameRunning = true;
+  private boolean programRunning = true;
   private PlayerCharacter player;
   private DungeonLevel currentLevel;
   private final GameData gameData;
@@ -103,7 +104,7 @@ public class GameMediator {
 
       // Exit program
       if (index == 3) {
-        gameRunning = false;
+        gameRunning = programRunning = false;
         return;
       }
     }
@@ -137,13 +138,13 @@ public class GameMediator {
     commandFactory = new CommandFactory(this);
 
     currentLevel = AreaMapData.fromFile(gameData.startingAreaFile).buildLevel(0);
+    currentLevel.illuminate();
     currentLevel.setIsVisited(true);
 
     // Done loading assets
     consoleColleague.splash(gameData.introduction);
 
     consoleColleague.setPlayer(player);
-    currentLevel.draw(ConsoleFactory.getInstance());
     consoleColleague.drawLeftPane(currentLevel);
     currentLevel.setPlayer(player);
     consoleColleague.draw(player);
@@ -177,6 +178,10 @@ public class GameMediator {
 
     final boolean updateNpcs = player.hasMoved() || !CommandMapper.NO_UPDATE_CMD_SET.contains(command);
 
+    if (updateNpcs) {
+      updateList.addAll(currentLevel.illuminate());
+    }
+
     consoleColleague.draw(currentLevel.getTileRelative(player.getPosition()));
     consoleColleague.draw(currentLevel.getTileRelative(player.getLastPosition()));
 
@@ -203,7 +208,9 @@ public class GameMediator {
     }
 
     for (final NonPlayerCharacter npc : currentLevel.getNonPlayerCharacters()) {
-      consoleColleague.draw(npc);
+      if (currentLevel.getTileRelative(npc.getPosition()).isVisible()) {
+        consoleColleague.draw(npc);
+      }
     }
 
     // Draw the player last in case it is in targeting mode
@@ -266,10 +273,25 @@ public class GameMediator {
   }
 
   private void processNpcDeath(final AbstractActor attacker, final AbstractActor defender) {
-    final String attackerName = StringUtils.capitalize(attacker.getNameThirdPerson());
-    final Color foreground = attacker.getForeground();
-    final String defenderName = defender.getNameThirdPerson();
-    final String text = attackerName + " killed " + defenderName + ".";
+    final boolean attackerVisible = currentLevel.getTileRelative(attacker.getPosition()).isVisible();
+    final boolean defenderVisible = currentLevel.getTileRelative(defender.getPosition()).isVisible();
+    String text = "Something died.";
+    String attackerName = "Something";
+    String defenderName = "something";
+    Color foreground = TrueColor.GRAY;
+
+    if (attackerVisible) {
+      attackerName = StringUtils.capitalize(attacker.getNameThirdPerson());
+      foreground = attacker.getForeground();
+    }
+
+    if (defenderVisible) {
+      defenderName = defender.getNameThirdPerson();
+    }
+
+    if (attackerVisible || defenderVisible) {
+      text = attackerName + " killed " + defenderName + ".";
+    }
 
     consoleColleague.printMessageLogEntry(text, foreground, TrueColor.BLACK);
     currentLevel.getNonPlayerCharacters().remove(defender);
@@ -287,6 +309,7 @@ public class GameMediator {
 
     if (currentTile.getExit() != null) {
       currentLevel = currentLevel.getNeighbor(currentTile.getExit());
+      FieldOfViewFactory.playerExitLevel();
 
       final Direction oppositeDirection = currentTile.getExit().opposite();
       final Coordinate nextPosition = currentLevel.getExitPositionRelative(oppositeDirection);
@@ -296,7 +319,7 @@ public class GameMediator {
       player.setPosition(nextPosition);
       player.setPosition(nextPosition);
 
-      currentLevel.draw(ConsoleFactory.getInstance());
+      currentLevel.illuminate();
       consoleColleague.drawLeftPane(currentLevel);
 
       // Assign a new random position for every NPC already in the dungeonLevel (to approximate the passage of time)
@@ -344,6 +367,16 @@ public class GameMediator {
    */
   public void setGameRunning(final boolean gameRunning) {
     this.gameRunning = gameRunning;
+  }
+
+  /**
+   * Returns the current state of the program (i.e. if the user wishes to end
+   * the program from the main menu).
+   *
+   * @return The current state of the program
+   */
+  public boolean isProgramRunning() {
+    return programRunning;
   }
 
   /**

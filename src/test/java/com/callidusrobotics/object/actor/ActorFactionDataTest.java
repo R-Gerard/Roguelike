@@ -49,5 +49,7 @@ public class ActorFactionDataTest {
     final List<String> allies = Collections.emptyList();
 
     data.factions.add(new ActorFactionElement(ActorFactionData.PLAYER_FACTION, enemies, neutrals, allies));
+    data.factions.add(new ActorFactionElement(ActorUtil._7DRL_TOWNSFOLK_FACTION, enemies, null, null));
+    data.factions.add(new ActorFactionElement(ActorUtil._7DRL_DEPUTIES_FACTION, enemies, null, null));
   }
 }

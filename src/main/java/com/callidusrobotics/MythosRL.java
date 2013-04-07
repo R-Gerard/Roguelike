@@ -75,20 +75,29 @@ public final class MythosRL {
       return;
     }
 
-    console.clear();
-    final GameMediator mediator = new GameMediator(console, gameData);
-    mediator.start();
-    while (mediator.isGameRunning()) {
-      try {
+    boolean programRunning = true;
+    while (programRunning) {
+      console.clear();
+      final GameMediator mediator = new GameMediator(console, gameData);
+      mediator.start();
+      while (mediator.isProgramRunning() && mediator.isGameRunning()) {
+        try {
+          console.render();
+          final KeyEvent input = console.getKeyPress();
+          mediator.processInput(input);
+        } catch (final RuntimeException e) {
+          writeLogMessage(ExceptionUtils.getStackTrace(e));
+        }
+      }
+
+      programRunning = mediator.isProgramRunning();
+
+      if (programRunning) {
         console.render();
-        final KeyEvent input = console.getKeyPress();
-        mediator.processInput(input);
-      } catch (final RuntimeException e) {
-        writeLogMessage(ExceptionUtils.getStackTrace(e));
+        console.getKeyPress();
       }
     }
 
-    console.getKeyPress();
     console.exit();
   }
 

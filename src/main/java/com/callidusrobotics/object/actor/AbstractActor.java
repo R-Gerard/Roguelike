@@ -21,8 +21,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
@@ -56,6 +59,7 @@ public abstract class AbstractActor extends AbstractGameObject implements Actor 
   protected String faction;
   protected final Map<EquipmentSlot, Item> equipment;
   protected List<String> woundDescriptions = WND_DESCRIPTIONS;
+  protected Set<AbstractActor> knownEntities = new HashSet<AbstractActor>();
 
   /**
    * Constructor for meta objects that do not interact with the world, e.g.
@@ -218,6 +222,14 @@ public abstract class AbstractActor extends AbstractGameObject implements Actor 
 
   public Inventoriable getEquippedItem(final EquipmentSlot slot) {
     return equipment.get(slot);
+  }
+
+  public Set<AbstractActor> getKnownEntities() {
+    return Collections.unmodifiableSet(knownEntities);
+  }
+
+  public void setKnownEntity(final AbstractActor actor) {
+    knownEntities.add(actor);
   }
 
   public boolean equipItemInInventoryToEquipmentSlot(final int index, final EquipmentSlot slot) {
